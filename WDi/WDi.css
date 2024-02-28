@@ -81,6 +81,15 @@ body{
     background-image: url('./imgs/profileC.svg');
 }
 
+.profileCard>span{
+    font-family: 'Lora', sans-serif;
+    font-size: small;
+    font-weight: 600;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
 .profileCard>.contactBtn{
     height: 6.25%;
     padding: 0 5% 10% 5%;
@@ -98,6 +107,7 @@ body{
     background-repeat: no-repeat;
 
     cursor: pointer;
+
 }
 
 .profileCard>.contactBtn>a:hover{
@@ -171,11 +181,11 @@ h2{
 #timeleft{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0 20%;
+    justify-content: center;
 }
 
 #timeleft>.timeCard{
+    margin: 0 1vw;
     display: block;
     border: 1px solid #fff;
     border-radius: 1vw;
@@ -262,14 +272,38 @@ article>h1{
     align-items: center;
 }
 
+.secConfirm>article{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#frmConfirm{
+    border: 1px solid #ffffff;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2), 
+                0px 10px 20px rgba(0,0,0,0.3), 
+                0px 30px 60px 1px rgba(0,0,0,0.5);
+
+    height: 30vh;
+    width: 48%;
+    margin: 15px 0;
+}
+
+
 
 
 #boxWishes{
     border: 1px solid #000000;
     border-radius: 8px;
     height: 30vh;
+    width: 48%;
     overflow-y: auto;
-    margin: 15px;
+    margin: 15px 0;
     background: none;
     scroll-margin: 8px;
 }
@@ -302,6 +336,7 @@ article>h1{
 #letTheFirstCmt{
     text-align: center;
     color: #00f;
+    font-size: smaller;
 }
 
 footer{
@@ -340,9 +375,9 @@ footer{
         font-size: 24pt;
     }
 
-    #timeleft{
+    /* #timeleft{
         margin: 0 0%;
-    }
+    } */
 
     #story{
         width: 100%;
@@ -351,5 +386,18 @@ footer{
         background-image: url('./imgs/story_p.svg');
         background-size: cover;
         background-position: center center;
+    }
+
+    .secConfirm>article{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #boxWishes, #frmConfirm{
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    #boxWishes{
+        height: 25vh;
     }
 }
