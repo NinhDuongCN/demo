@@ -281,6 +281,9 @@ article>h1{
 
 
 #frmConfirm{
+    max-height: 30vh;
+    width: 48%;
+    margin: 15px 0;
     border: 1px solid #ffffff;
     background: transparent;
     backdrop-filter: blur(4px);
@@ -289,12 +292,22 @@ article>h1{
                 0px 10px 20px rgba(0,0,0,0.3), 
                 0px 30px 60px 1px rgba(0,0,0,0.5);
 
-    height: 30vh;
-    width: 48%;
-    margin: 15px 0;
+    
 }
 
 
+.frmItem{
+    width: 100%
+}
+
+.inp, .cbb>select{
+    height: 3vh;
+    width:100%;
+}
+
+#Wish{
+    max-height: 9vh;
+}
 
 
 #boxWishes{
