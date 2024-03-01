@@ -50,25 +50,25 @@
         <article>
             <p>Mùa xuân là mùa khởi đầu của một năm, là mùa mà vạn vật sinh sôi, nảy nở; là biểu trưng cho khởi đầu mới với sức sống tươi trẻ, hi vọng và phát triển.</p>
             <p>Mùa xuân có một ngày đặc biệt. Là ngày mặt trời ở vị trí ngang đường xích đạo, độ dài ngày, đêm bằng nhau, khí trời trong lành, biểu trưng cho sự cân bằng, hài hòa của vũ trụ. Được chọn là ngày Quốc tế Hạnh phúc nhằm tôn vinh, phát triển và nâng cao hạnh phúc của nhân loại toàn cầu.</p>
-            <p>Và ngày đặc biệt ấy cũng được lựa chọn để đánh dấu một chặng đường mới trong cuộc đời của chúng tôi.</p>
+            <p>Và ngày đặc biệt ấy cũng được lựa chọn để đánh dấu một chặng đường mới trong cuộc đời của <span class="NC">Châm</span> và <span class="NC">Nguyên</span>.</p>
             <p id="ourDate">20 - 3 - 2024</p>
             <div id="countdown">
                 <h2>Cùng đếm ngược</h2>
                 <div id="timeleft">
                     <div class="timeCard" id="day">
-                        <p class="tlvalue">22</p>
+                        <p class="tlvalue" id="ngay"> </p>
                         <p class="tllable">ngày</p>
                     </div>
                     <div class="timeCard" id="hour">
-                        <p class="tlvalue">22</p>
+                        <p class="tlvalue" id="gio"> </p>
                         <p class="tllable">giờ</p>
                     </div>
                     <div class="timeCard" id="min">
-                        <p class="tlvalue">22</p>
+                        <p class="tlvalue" id="phut"> </p>
                         <p class="tllable">phút</p>
                     </div>
                     <div class="timeCard" id="sec">
-                        <p class="tlvalue">22</p>
+                        <p class="tlvalue" id="giay"> </p>
                         <p class="tllable">giây</p>
                     </div>
                 </div>
@@ -96,19 +96,19 @@
         <article>
             <form id="frmConfirm" method="post">
                 <div class="frmItem txt">
-                    <label for="Name" aria-required="true">Quý danh*</label>
-                    <input type="text" class="inp" id="Name" name="Name" placeholder="Tên và lời chúc sẽ được hiển thị công khai"/>
+                    <!-- <label for="Name">Quý danh*</label> -->
+                    <input type="text" class="inp" id="Name" name="Name" placeholder="Tên" />
                 </div>
                 <div class="frmItem txt">
-                    <label for="Phone">Số điện thoại</label>
-                    <input type="tel" class="inp" id="Phone" name="Phone" placeholder=""/>
+                    <!-- <label for="Phone">Số điện thoại</label> -->
+                    <input type="tel" class="inp" id="Phone" name="Phone" placeholder="Số điện thoại"/>
                 </div>
                 <div class="frmItem rtxt">
-                    <label for="Wish">Lời chúc</label>
-                    <textarea type="text" class="inp" id="Wish" name="Wish" placeholder="Tên và lời chúc sẽ được hiển thị công khai"></textarea>
+                    <!-- <label for="Wish">Lời chúc</label> -->
+                    <textarea type="text" class="inp" id="Wish" name="Wish" placeholder="Lời chúc"></textarea>
                 </div>
                 <div class="frmItem cbb">
-                    <select id="Join" name="Join" aria-placeholder="vui lòng xác nhận tham gia">
+                    <select class="inp" id="Join" name="Join" onchange ="selectConfirm()"">
                         <option value="nhà trai">Tôi sẽ đến dự tại nhà trai</option>
                         <option value="nhà gái">Tôi sẽ đến dự tại nhà gái</option>
                         <option value="chưa biết">Tôi sẽ sắp xếp và thông báo sau</option>
@@ -116,8 +116,8 @@
                     </select>
                 </div>
                 <div class="frmItem cbb">
-                    <select id="Number" name="Number">
-                        <option value="0">Tôi sẽ thông báo sau</option>
+                    <select class="inp" id="Number" name="Number">
+                        <option value="0">Tôi sẽ thông báo số lượng sau</option>
                         <option value="1" selected>Tôi đi một mình</option>
                         <option value="2">Tôi sẽ đi cùng 1 người</option>
                         <option value="3">Tôi sẽ đi cùng 2 người</option>
@@ -128,6 +128,7 @@
                 <div class="frmItem btn">
                     <button type="button" class="btn" id="btnSend" onclick="SendWish()">Gửi</button>
                 </div>
+                <span class="frmNote">Tên và lời chúc sẽ được hiển thị công khai</span>
             </form>
             <div class="wishes" id="boxWishes">
                 <div class="comment blank" id="newCmt"></div>
@@ -145,6 +146,7 @@
     </section>
 </body>
 <script language="javascript">
+    setInterval(Countdown, 1000);
     GetWishes();
 </script>
 </html>

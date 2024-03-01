@@ -132,6 +132,46 @@ function Contact(p){
 }
 
 
+let WDsec = (new Date(2024, 2, 20, 11, 11, 11, 111)).getTime(); //20/3/2024
+
+function Countdown()
+{
+    var td = new Date();
+    var tdSec = td.getTime();
+    var secs = Math.floor((-tdSec + WDsec) / 1000);
+    var dhm = Math.floor(secs / 86400);
+    secs %= 86400;
+    document.getElementById("ngay").innerText = dhm;
+    dhm = Math.floor(secs / 3600);
+    secs %= 3600;
+    document.getElementById("gio").innerText = dhm < 10 ? ("0" + dhm) : dhm;
+    dhm=Math.floor(secs / 60);
+    document.getElementById("phut").innerText = dhm < 10 ? ("0" + dhm) : dhm;
+    secs %= 60;
+    document.getElementById("giay").innerText = secs < 10 ? ("0" + secs) : secs;
+}
+
+
+function selectConfirm(){
+    var num = document.querySelector(".inp#Number");
+    if(document.querySelector(".inp#Join").value == "không")
+    {
+        num.setAttribute('hidden', 'true');
+        num.value = 0;
+    }
+    else{
+        try{
+            num.removeAttribute("hidden");
+            if(num.value==0)    num.value = 1;
+        }
+        catch{
+            ;
+        }
+    }
+}
+
+
+
 
 function SetBtnPause()
 {

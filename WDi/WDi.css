@@ -134,7 +134,7 @@ article{
     width: 80%;
     border-radius: 10px;
     margin-top: 11px;
-    margin-bottom: 11px;
+    /*margin-bottom: 11px;*/
     padding: 2vw 5vw;
 
     /* border: 1px solid whitesmoke;
@@ -157,6 +157,12 @@ article>p{
     text-indent: 1cm;
     user-select: none;
     
+}
+
+.NC{
+    font-family: 'Lobster', cursive; 
+    font-weight: bold; 
+    font-size: 14pt;
 }
 
 p#ourDate{
@@ -281,32 +287,102 @@ article>h1{
 
 
 #frmConfirm{
-    max-height: 30vh;
+    /*max-height: 30vh;*/
     width: 48%;
-    margin: 15px 0;
+    overflow: auto;
+    
     border: 1px solid #ffffff;
     background: transparent;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 8px;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.2), 
                 0px 10px 20px rgba(0,0,0,0.3), 
                 0px 30px 60px 1px rgba(0,0,0,0.5);
-
-    
 }
-
 
 .frmItem{
-    width: 100%
+    /* width: 100%;  */
+    padding: 0;
+    /* margin: 0 0 0 5px; */
+    text-align: center;
+}
+/* .frmItem.btn{
+    text-align: center;
+} */
+
+#btnSend{
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-family: 'Montserrat', cursive;
+    font-weight: bold;
+    font-size: medium;
+
+    width: 50%;
+    max-width: 10ch;
+    height: 1.5lh;
+    
+    margin-top: 4px;
 }
 
-.inp, .cbb>select{
-    height: 3vh;
-    width:100%;
+#btnSend:hover{
+    background-color: #ffffff;
+    border-color: #00f;
+}
+
+
+.inp{
+    height: 1.2lh;
+    width: 95%;
+    /*margin-top: -1.2lh;*/
+    font-family: 'Montserrat', cursive;
+    font-weight: 500;
+    font-size: medium;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    text-align: justify;
+}
+
+/* .txt, .rtxt{
+    width: 98%;
+} */
+
+.inp:focus{
+    border-bottom-color: blue;
+}
+
+ .inp::placeholder{
+    color: #00f;
+    
+    /*text-indent: 0;*/
+} 
+
+.inp:focus::placeholder{
+    color: gray;
+}
+
+.frmItem>label{
+    font-family: 'Montserrat', cursive;
+    font-weight: bold;
+    font-size: small;
 }
 
 #Wish{
-    max-height: 9vh;
+    height: 2lh;
+    overflow-y: auto;
+    resize: none;
+}
+
+
+.frmNote{
+    font-size: 9pt;
+    font-style: italic;
+    font-weight: normal;
+    color: darkred;
+    margin-left: 12px;
 }
 
 
@@ -316,7 +392,6 @@ article>h1{
     height: 30vh;
     width: 48%;
     overflow-y: auto;
-    margin: 15px 0;
     background: none;
     scroll-margin: 8px;
 }
@@ -324,7 +399,7 @@ article>h1{
 .comment{
     background-color: rgba(245,245, 245, 0.8);
     border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 0 18px 18px 18px;
+    border-radius: 4px 18px 18px 18px;
     margin: 5px 10px;
 }
 
@@ -351,6 +426,7 @@ article>h1{
     color: #00f;
     font-size: smaller;
 }
+
 
 footer{
     text-decoration: none;
@@ -408,7 +484,7 @@ footer{
 
     #boxWishes, #frmConfirm{
         width: 100%;
-        margin-bottom: 2px;
+        margin: 4px 0;
     }
     #boxWishes{
         height: 25vh;
