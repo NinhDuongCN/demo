@@ -139,6 +139,9 @@ function Countdown()
     var td = new Date();
     var tdSec = td.getTime();
     var secs = Math.floor((-tdSec + WDsec) / 1000);
+    if(secs<0){
+        return;
+    }
     var dhm = Math.floor(secs / 86400);
     secs %= 86400;
     document.getElementById("ngay").innerText = dhm;
