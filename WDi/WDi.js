@@ -201,7 +201,6 @@ function NextPhoto(){ //i_cur: index của ảnh hiện tại
     // photoElement[i_nxt].style.transform = "translateX(0)";
     // photoElement[i_pre].style.transform = "translateX(100)";
     // i_cur = i_nxt;
-
     i_nxt = (i_cur == maxIndex) ? 0 : i_cur + 1;
     document.getElementById("p0").style.backgroundImage = "url('./imgs/ps/" + lstPhoto[i_nxt] + ".jpg')";
     i_cur = i_nxt;
@@ -222,11 +221,42 @@ function PrePhoto(){
 
 
 
+var audioCount = 11; //Số lượng bài hát trong danh sách; NHỚ THÊM GIÁ TRỊ TRONG MẢNG tmplstNhac Ở HÀM CreateRandomLstNhac
+//var isPlaying = false;
+var lstNhac = new Array();
 
-
-function SetBtnPause()
+function CreateRandomLstNhac()
 {
-    //document.getElementById("btnPlayPause").setAttribute("src", imgPause);
-    isPlaying = true;
-    document.getElementById("btnPlayPause").hidden = true;
+    var tmplstNhac = [ 0, 3, 8, 14, 21, 51, 57, 96, 104, 120];
+    lstNhac.push(61);
+
+    //lstNhac = new Array();
+    for(var i = 1; i < audioCount; i++)
+    {
+        lstNhac.push(tmplstNhac.splice(Math.floor(Math.random() * tmplstNhac.length), 1));
+    }
 }
+
+function PlayAudio()
+{
+    var aud = document.getElementById("au");
+    //aud.setAttribute("src", "./audio/" + Math.floor(Math.random()*audioCount) + ".mp3");
+    aud.setAttribute("src", "../audios/" + lstNhac.shift());
+    aud.play();
+    if(lstNhac.length === 0)
+    {
+        CreateRandomLstNhac();
+    }
+}
+
+function BtnAudioClicked(){
+    document.getElementById("btnPlayPause").hidden = true;
+    PlayAudio();
+}
+
+// function SetBtnPause()
+// {
+//     //document.getElementById("btnPlayPause").setAttribute("src", imgPause);
+//     isPlaying = true;
+//     document.getElementById("btnPlayPause").hidden = true;
+// }

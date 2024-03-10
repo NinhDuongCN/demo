@@ -11,7 +11,7 @@
 
     <title>NguyênChâm Wedding invitation</title>
 
-    <!--đổi ảnh--><meta property="og:image" itemprop="thumbnailUrl" content="https://NinhDuongCN.github.io/demo/WDi/imgs/thumbnail.png"> 
+    <!--đổi ảnh--><meta property="og:image" itemprop="thumbnailUrl" content="https://www.NguyenChamMemories.id.vn/WDi/imgs/thumbnail.png"> 
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
     <meta property="og:description" content="Thiệp mời điện tử của Nguyên&Châm">
 </head>
 <body>
-    <noscript>Cần bật javascript để trang hoạt động đầy đủ</noscript>
+    <noscript>Trang hoạt động tốt nhất trên trình duyệt Chrome và bật javascript</noscript>
     <section class="secCover" id="secCover">
        <!-- <p>NguyênChâm's Wedding</p>-->
     </section>
@@ -164,14 +164,16 @@
     </section>
     <section class="secOther">
         
-        <!--<img id="btnPlayPause" src="../images/btns/btn_play.svg" onclick="BtnClicked()" tag="pause" />-->
-        <audio id="au" hidden="true" onended="PlayAudio()" onplay="SetBtnPause()"  src="#">
+        <img id="btnPlayPause" src="../images/btns/btn_play.svg" onclick="BtnAudioClicked()" tag="pause" />
+        <audio id="au" hidden="true" onended="PlayAudio()"  src="#">
     </section>
 </body>
 <script language="javascript">
     setInterval(Countdown, 1000);
     CreateListPhoto();
     setInterval(NextPhoto, 3000);
+    CreateRandomLstNhac();
+    BtnAudioClicked();
     GetWishes();
 </script>
 </html>

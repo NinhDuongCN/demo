@@ -50,16 +50,6 @@ body{
     justify-content: space-evenly;
 }
 
-@media screen and (orientation: landscape){
-    #secInfo{
-        height: 90%;
-        display: flex;
-        flex-direction: row;
-    }
-
-}
-
-
 .profileCard{
     aspect-ratio: 9 / 16;
     display: flex;
@@ -174,7 +164,7 @@ article>p{
 p#ourDate{
     font-family: 'Lobster', cursive;
     font-weight: bold;
-    font-size: 9vh;
+    font-size: 9vw;
     text-indent: 0;
     text-align: center;
     line-height: normal;
@@ -212,7 +202,7 @@ h2{
 .tlvalue{
     width: 3ch;
     font-family: 'Lora', sans-serif;
-    font-size: 32pt;
+    font-size: 24pt;
     font-weight: bold;
     margin-bottom: 1vh;
 }
@@ -260,11 +250,11 @@ article>h1{
 #story{
     background: transparent;
     width: 100%;
-    aspect-ratio: 1920 / 565;
+    aspect-ratio: 1080 / 1920;
     /* src: url('./imgs/story_l.svg'); */
-    background-image: url('./imgs/story_l.svg');
+    background-image: url('./imgs/story_p.svg');
     background-size: cover;
-    background-position: top center;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 
@@ -288,7 +278,7 @@ article>h1{
 
 #photoShow{    
     width: 100%;
-    aspect-ratio: 16 /9;
+    aspect-ratio: 9 / 16;
     background: transparent;
     border: none;
     overflow: hidden;
@@ -344,7 +334,7 @@ article>h1{
     width: 100%;
     height: 100%;
     min-width: 320px;
-    background-image: url('./imgs/bgr_secConfirm_l.jpg');
+    background-image: url('./imgs/bgr_secConfirm_p.jpg');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -358,14 +348,14 @@ article>h1{
 .secConfirm>article{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 
 #frmConfirm{
     /*max-height: 30vh;*/
-    width: 48%;
+    width: 100%;
     overflow: auto;
     
     border: 1px solid #ffffff;
@@ -466,8 +456,8 @@ article>h1{
 #boxWishes{
     border: 1px solid #000000;
     border-radius: 8px;
-    height: 30vh;
-    width: 48%;
+    height: 25vh;
+    width: 100%;
     overflow-y: auto;
     background: none;
     scroll-margin: 8px;
@@ -520,104 +510,74 @@ footer{
     font-style: inherit;
 }
 
+@media screen and (orientation: landscape){
+    #secInfo{
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #photoShow{
+        aspect-ratio: 16 /9;
+    }
+
+    p#ourDate{
+        font-size: 9vh;
+    }
+
+    .tlvalue{
+        font-size: 32pt;
+    }
+
+    #story{
+        aspect-ratio: 1920 / 565;
+        background-image: url('./imgs/story_l.svg');
+        background-position: top center;
+    }
+
+    .secConfirm{
+        background-image: url('./imgs/bgr_secConfirm_l.jpg');
+    }
+
+    .secConfirm>article{
+        flex-direction: row;
+    }
+
+    #frmConfirm{
+        width: 48%;
+    }
+
+    #boxWishes{
+        width: 48%;
+        height: 25vh;
+    }
+}
+
 @media screen and (orientation: portrait){
     #secInfo{
         width: 90%;
         display: flex;
         flex-direction: column;
         margin-left: 5%;
-    }
-
-
-
-    #photoShow{
-        aspect-ratio: 9 / 16;
-    }
-
-    p#ourDate{
-        font-family: 'Lobster', cursive;
-        font-weight: bold;
-        font-size: 9vw;
-        text-indent: 0;
-        text-align: center;
-    }
-
-
-    .tlvalue{
-        font-size: 24pt;
-    }
-
-    /* #timeleft{
-        margin: 0 0%;
-    } */
-
-    #story{
-        width: 100%;
-        aspect-ratio: 1080 / 1920;
-        /* src: url('./imgs/story_l.svg'); */
-        background-image: url('./imgs/story_p.svg');
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .secConfirm{
-        background-image: url('./imgs/bgr_secConfirm_p.jpg');
-    }
-    
-    .secConfirm>article{
-        flex-direction: column;
-        justify-content: space-between;
-    }
+    }   
 
     #boxWishes, #frmConfirm{
-        width: 100%;
         margin: 4px 0;
     }
-    #boxWishes{
-        height: 25vh;
-    }
+    
 }
 
-@keyframes showFromLeft {
-    0%{
-        transform: translateX(-100%);
-        opacity: 100%;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 100%;
-    }
+#btnPlayPause{
+    height: 8vh;
+    width: auto;
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    z-index: 999;
+    opacity: 50%;
+    border-radius: 8vh;
 }
 
-@keyframes showFormRight {
-    0%{
-        transform: translateX(100%);
-        opacity: 100%;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 100%;
-    }
-}
-
-@keyframes toLeft{
-    0%{
-        transform: translateX(0);
-        opacity: 100%;
-    }
-    100%{
-        transform: translateX(-100%);
-        opacity: 0%;
-    }
-}
-
-@keyframes toRight {
-    0%{
-        transform: translateX(0);
-        opacity: 100%;
-    }
-    100%{
-        transform: translateX(100%);
-        opacity: 0%;
-    }
+#btnPlayPause:hover{
+    opacity: 100%;
 }
