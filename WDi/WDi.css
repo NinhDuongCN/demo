@@ -312,9 +312,13 @@ article>h1{
     display: block;
 }
 
+.gBtn{
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+}
+
 #btnPre{
-    width: 64px;
-    height: 64px;
     background-image: url("../images/btns/btn_pre.svg");
     display: block;
     position: absolute;
@@ -326,8 +330,6 @@ article>h1{
 }
 
 #btnNxt{
-    width: 64px;
-    height: 64px;
     background-image: url("../images/btns/btn_next.svg");
     display: block;
     position: absolute;
