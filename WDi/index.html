@@ -91,15 +91,21 @@
         <article id="photoGallery">
             <div id="boxShow">
                 <div class="photoShow" id="photoShow">
-                    <div class="photo" id="p1"></div>
+                    <div class="photo" id="p0"></div>
+                    <!-- <div class="photo" id="p1"></div>
                     <div class="photo" id="p2"></div>
                     <div class="photo" id="p3"></div>
                     <div class="photo" id="p4"></div>
                     <div class="photo" id="p5"></div>
+                    <div class="photo" id="p6"></div>
+                    <div class="photo" id="p7"></div>
+                    <div class="photo" id="p8"></div>
+                    <div class="photo" id="p9"></div>
+                    <div class="photo" id="p10"></div> -->
                 </div>
                 <div id="gBtn">
-                    <div class="gBtn" id="btnPre">pre</div>
-                    <div class="gBtn" id="btnNxt">nxt</div>
+                    <div class="gBtn" id="btnPre" onclick="PrePhoto()"></div>
+                    <div class="gBtn" id="btnNxt" onclick="NextPhoto()"></div>
                 </div>
             </div>  
         </article>
@@ -164,6 +170,8 @@
 </body>
 <script language="javascript">
     setInterval(Countdown, 1000);
+    CreateListPhoto();
+    //setInterval(NextPhoto, 3000);
     GetWishes();
 </script>
 </html>

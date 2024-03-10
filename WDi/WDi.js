@@ -173,6 +173,54 @@ function selectConfirm(){
     }
 }
 
+var lstPhoto = [];
+var photoCount = 11;
+var maxIndex = 10;
+// var photoElement = document.getElementById("p0");
+
+function CreateListPhoto(){
+    var tmpLstPhoto=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    for(var j = 0; j < photoCount; j++)
+    {
+        lstPhoto.push(tmpLstPhoto.splice(Math.floor(Math.random() * (photoCount - j)), 1));
+        // photoElement.push(document.getElementById("p" + j));
+        // photoElement[j].style.backgroundImage = "url('./imgs/ps/" + lstPhoto[j] + ".jpg')";
+    }
+    i_cur = maxIndex;
+    NextPhoto();
+}
+
+
+var i_cur = 0;
+var i_pre, i_nxt;
+
+function NextPhoto(){ //i_cur: index của ảnh hiện tại
+    // i_pre = (i_cur == 0) ? maxIndex : i_cur - 1;
+    // i_nxt = (i_cur == maxIndex) ? 0 : i_cur + 1;
+    // photoElement[i_cur].style.transform = "translateX(-100%)";
+    // photoElement[i_nxt].style.transform = "translateX(0)";
+    // photoElement[i_pre].style.transform = "translateX(100)";
+    // i_cur = i_nxt;
+
+    i_nxt = (i_cur == maxIndex) ? 0 : i_cur + 1;
+    document.getElementById("p0").style.backgroundImage = "url('./imgs/ps/" + lstPhoto[i_nxt] + ".jpg')";
+    i_cur = i_nxt;
+}
+
+function PrePhoto(){
+    // i_pre = (i_cur == 0) ? maxIndex : i_cur - 1;
+    // i_nxt = (i_cur == maxIndex) ? 0 : i_cur + 1;
+    // photoElement[i_cur].style.transform = "translateX(100%)";
+    // photoElement[i_pre].style.transform = "translateX(0)";
+    // photoElement[i_nxt].style.transform = "translateX(-100)";
+
+    i_pre = (i_cur == 0) ? maxIndex : i_cur - 1;
+    document.getElementById("p0").style.backgroundImage = "url('./imgs/ps/" + lstPhoto[i_pre] + ".jpg')";
+    i_cur = i_pre;
+}
+
+
+
 
 
 
