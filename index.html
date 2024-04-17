@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/icon" href="./images/MemoriesFavicon.svg" />
+    <link type="text/css" rel="stylesheet" href="./NCm.css" />
+    <script type="text/javascript" src="./NCm.js"></script>
+
+    <title>NguyênChâm's Memories</title>
+
+    <meta property="og:image" itemprop="thumbnailUrl" content="https://NguyenChamMemories.id.vn/images/thumbs/comingsoonThumbnail.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NguyênChâm's Memories">
+    <meta property="og:url" content="https://NguyenChamMemories.id.vn">
+    <meta property="og:description" content="NguyênChâm's Memories">
+    <meta name="description" content="NguyênChâm's Memories">
+
+</head>
+<body >
+    <noscript data-nosnippet>Cần bật javascript để trang hoạt động đầy đủ</noscript>
+    <!--<div id="msg" onclick="div_Clicked()">Coming soon</div>-->
+    <div class="container" id="divbgr" onclick="div_Clicked()"></div>
+    <div class="container" id="divMain">
+        <div class="controllerGroup" id="audioController">
+            <audio id="au" onended="PlayAudio()" onplay="SetBtnPause()" onpause="SetBtnPlay()" src="#" hidden aria-hidden="true"></audio>
+            <div class="ctrlBtn" id="btnComment"></div>
+            <div class="ctrlBtn" id="btnPlayPause" tag="pause" onclick="BtnClicked()"></div>
+            <div class="ctrlBtn" id="btnNext" onclick="PlayAudio()"></div>
+        </div>
+
+        <div class="appGroup" id="appGroup">
+            <div class="app" id="WDCD"></div>
+            <div class="app" id="proposal"></div>
+            <div class="app" id="NCm"></div>
+            <div class="app" id="WDi"></div>
+            <div class="app" id="WD"></div>
+            <div class="app" id="LanHuoLong"></div>
+        </div>
+    </div>
+
+    <!--play audio-->
+    <!--<img id="btnPlayPause" src="./images/btns/btn_play.svg" onclick="BtnClicked()" tag="pause" />-->
+    
+
+
+</body>
+<script language="javascript">
+    CreateRandomLstNhac();
+    PlayAudio();
+    
+</script>
+</html>

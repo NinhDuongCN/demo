@@ -1,0 +1,138 @@
+/*
+ * create: 2024-02-03
+ * update:
+ */
+
+@charset "UFT-8";
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Mea+Culpa&display=swap');
+@font-face { font-family: 'Mea Culpa'; src: url('./fonts/MeaCulpa-Regular.ttf') format('truetype');}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("./images/bgr.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* #msg{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Mea Culpa', cursive;
+    font-size: 9vh;
+    color:white;
+    text-shadow: #000000 5px -4px 1em;
+} */
+
+/* #btnPlayPause{
+    height: 8vh;
+    width: auto;
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    z-index: 999;
+    opacity: 50%;
+    border-radius: 8vh;
+} */
+
+.container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#divbgr{
+    height: 100%;
+}
+
+#audioController{
+    background-color: rgba(0, 0, 0, 0.22);
+    height: 12vw;
+    padding: 2vw 0;
+    width: 60vw;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: center;
+    border: none;
+    border-radius: 12vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 2vw;
+}
+
+.ctrlBtn{
+    height: 10vw;
+    width: 10vw;
+    margin: 1vw 1vw;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    cursor: pointer;
+}
+
+.ctrlBtn#btnComment{
+    background-image: url('./images/btns/au_comment.svg');
+}
+
+.ctrlBtn#btnPlayPause{
+    background-image: url('./images/btns/au_play.svg');
+}
+
+.ctrlBtn#btnNext{
+    background-image: url('./images/btns/au_next.svg');
+}
+
+.app{
+    height: 15vw;
+    width: 15vw;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    cursor: pointer;
+    margin: 2vw 1vw;
+}
+#WDCD{
+    background-image: url('https://wdcd.nguyenchammemories.id.vn/icon/favicon.svg');
+
+}
+#proposal{
+    background-image: url('https://proposal.nguyenchammemories.id.vn/icon/favicon.svg');
+}
+#NCm{
+    background-image: url('./images/MemoriesFavicon.svg');
+}
+#WDi{
+    background-image: url('./images/WDiFavicon.svg');
+}
+#WD{
+    background-image: url('./images/WDfavicon.svg');
+}
+
+#divMain{
+    width: 100%;
+    z-index: 2;
+    bottom: 0;
+    position: fixed;
+}
+
+#appGroup{
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+}
