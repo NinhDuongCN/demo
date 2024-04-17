@@ -58,7 +58,7 @@ body{
     background-color: rgba(0, 0, 0, 0.22);
     height: 12vw;
     padding: 2vw 0;
-    width: 60vw;
+    width: 51vw;
     display: flex;
     display: -webkit-flex;
     flex-direction: row;
@@ -73,7 +73,7 @@ body{
 .ctrlBtn{
     height: 10vw;
     width: 10vw;
-    margin: 1vw 1vw;
+    margin: 1vw 2vw;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -129,6 +129,7 @@ body{
 
 #appGroup{
     width: 100%;
+    margin-bottom: 3vh;
     display: -webkit-flex;
     display: flex;
     -ms-flex-direction: row;
