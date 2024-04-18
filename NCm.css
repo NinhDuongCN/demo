@@ -22,6 +22,9 @@ body{
     background-attachment: fixed;
 }
 *{
+    -webkit-transition: all ease 0.15s;
+    -moz-transition: all ease 0.15s;
+    -o-transition: all ease 0.15s;
     transition: all ease 0.15s;
 }
 /* #msg{
@@ -64,13 +67,23 @@ body{
     width: 51vw;
     display: flex;
     display: -webkit-flex;
+    -ms-flex-direction: row;
     flex-direction: row;
     justify-content: center;
     border: none;
     border-radius: 12vw;
     margin-left: 50%;
+    
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform:translateX(-50%);
     transform: translateX(-50%);
     margin-bottom: 2vw;
+}
+
+#audioController>p{
+    display: none;
 }
 
 .ctrlBtn{
@@ -138,11 +151,11 @@ body{
 #appGroup{
     width: 100%;
     margin-bottom: 3vh;
-
     display: -webkit-flex;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: center;
     
@@ -158,5 +171,141 @@ body{
         grid-template-columns: 18vw 18vw 18vw 18vw 18vw;
         grid-template-rows: 18vw 18vw;
         justify-items: center;
+    }
+}
+
+
+@media screen and (orientation: landscape){
+    #audioController{
+        height: fit-content;
+        padding: 1.5vh 4.5vh 0.5vh 4.5vh;
+        width: 40vh;
+        display: flex;
+        display: -webkit-flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: center;
+        border: none;
+        border-radius: 7.5vh;
+        margin-left: 50%;
+
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -webkit-transform:translateX(-50%);
+        transform: translateX(-50%);
+    
+    }
+
+    #audioController>p{
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-family: 'Mea Culpa', cursive;
+        font-size: 3.5vh;
+        color:white;
+        text-shadow: #000000 5px -4px 1em;
+        margin: 1vh 0 0 0;
+    }
+
+    .ctrlBtn{
+        height: 7vh;
+        width: 7vh;
+        margin: 0 2vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        cursor: pointer;
+    }
+
+    .ctrlBtn#btnComment{
+        -o-transform: translateY(15%) scale(0.9);
+        -ms-transform: translateY(15%) scale(0.9);
+        -moz-transform: translateY(15%) scale(0.9);
+        -webkit-transform: translateY(15%) scale(0.9);
+        transform: translateY(15%) scale(0.9);
+    }
+    .ctrlBtn#btnNext{
+        -o-transform: translateY(10%) scale(0.8);
+        -ms-transform: translateY(10%) scale(0.8);
+        -moz-transform: translateY(10%) scale(0.8);
+        -webkit-transform: translateY(10%) scale(0.8);
+        transform: translateY(10%) scale(0.8);
+    }
+    .ctrlBtn#btnPlayPause{
+        background-color: rgba(255, 255, 255, 0.22);
+        border-radius: 50%;
+        background-size: 70%;
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    .ctrlBtn#btnPlayPause:hover{
+        background-color: rgba(255, 255, 255, 0.32);
+    }
+
+    #appGroup{
+        width: fit-content;
+        height: fit-content;
+        margin-bottom: 2vh;
+        margin-left: 50%;
+
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.22);
+        border-radius: 3vh;
+        padding: 1vh 2vh;
+
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        justify-content: center;
+        
+    }
+
+    .app{
+        height: 7vh;
+        width: 7vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        cursor: pointer;
+        margin: 0 0.5vh;
+    }
+
+    .app:hover{
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        margin: 0 1vh;
+    }
+
+    .app#blank{
+        height: 0;
+        width: 0;
+        margin: 0;
+    }
+    #divMain{
+        width: fit-content;
+        margin-left: 50%;
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 }
