@@ -21,6 +21,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+*{
+    transition: all ease 0.15s;
+}
 /* #msg{
     width: 100%;
     height: 100%;
@@ -104,20 +107,24 @@ body{
     margin: 1.5vw 1.5vw;
     
 }
-#WDCD{
+.app#blank{
+    cursor:auto;
+    background: none;
+}
+.app#WDCD{
     background-image: url('https://wdcd.nguyenchammemories.id.vn/icon/favicon.svg');
 
 }
-#proposal{
+.app#proposal{
     background-image: url('https://proposal.nguyenchammemories.id.vn/icon/favicon.svg');
 }
-#NCm{
+.app#NCm{
     background-image: url('./images/MemoriesFavicon.svg');
 }
-#WDi{
+.app#WDi{
     background-image: url('./images/WDiFavicon.svg');
 }
-#WD{
+.app#WD{
     background-image: url('./images/WDfavicon.svg');
 }
 

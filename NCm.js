@@ -6,7 +6,7 @@
 var changeaudio=false;
 
 function div_Clicked(){
-    if(changeaudio) return;
+    //if(changeaudio) return;
     window.location = "https://NinhDuongCN.github.io/WDCD";
     
 }
@@ -69,7 +69,7 @@ function SetBtnPlay()
 
 function BtnClicked()
 {
-    changeaudio=true;
+    //changeaudio=true;
     var aud = document.getElementById("au");
     if(isPlaying){
         aud.pause();
@@ -82,6 +82,29 @@ function BtnClicked()
             PlayAudio();
         }
     }
-    changeaudio=false;
+    //changeaudio=false;
 }
 //#endregion play_audio;
+
+
+//#region app_clicked
+function appClicked(app){
+    switch(app){
+        case 'proposal':
+            window.location = "https://proposal.NguyenChamMemories.id.vn";
+            return;
+        case 'WDCD':
+            window.location = "https://wdcd.NguyenChamMemories.id.vn";
+            return;
+        case 'NCm':
+            window.location = "https://www.NguyenChamMemories.id.vn/about";
+            return;
+        default:
+            window.location = "https://www.NguyenChamMemories.id.vn/" + app;
+    }
+}
+//#endregion app_clicked
+
+//#region memories
+let lstDate = [[2, 20], [3, 20], [5, 6], [5, 11], [8, 4], [8, 7], [8, 12], [9, 2], [12, 6]];
+//#endregion memories
