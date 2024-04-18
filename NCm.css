@@ -101,7 +101,8 @@ body{
     background-repeat: no-repeat;
     display: block;
     cursor: pointer;
-    margin: 2vw 1vw;
+    margin: 1.5vw 1.5vw;
+    
 }
 #WDCD{
     background-image: url('https://wdcd.nguyenchammemories.id.vn/icon/favicon.svg');
@@ -130,10 +131,25 @@ body{
 #appGroup{
     width: 100%;
     margin-bottom: 3vh;
+
     display: -webkit-flex;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+   
+}
+
+@supports (display:grid){
+    .app{
+        margin: auto;
+    }
+    #appGroup{
+        display: grid;
+        grid-template-columns: 18vw 18vw 18vw 18vw 18vw;
+        grid-template-rows: 18vw 18vw;
+        justify-items: center;
+    }
 }

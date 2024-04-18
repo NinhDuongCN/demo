@@ -15,8 +15,8 @@ function div_Clicked(){
 //#region play_audio
 //
 //var audioCount = 120; //Số lượng bài hát trong danh sách; NHỚ THÊM GIÁ TRỊ TRONG MẢNG tmplstNhac Ở HÀM CreateRandomLstNhac
-var imgPlay = "./images/btns/btn_play.svg";
-var imgPause = "./images/btns/btn_pause.svg";
+// var imgPlay = "./images/btns/au_play.svg";
+// var imgPause = "./images/btns/au_pause.svg";
 var isPlaying = false;
 var lstNhac = new Array();
 
@@ -56,14 +56,14 @@ function PlayAudio()
 
 function SetBtnPause()
 {
-    document.getElementById("btnPlayPause").setAttribute("src", imgPause);
+    document.getElementById("btnPlayPause").style.backgroundImage = "url('./images/btns/au_pause.svg')";//setAttribute("src", imgPause);
     isPlaying = true;
     //document.getElementById("btnPlayPause").hidden = true;
 }
 
 function SetBtnPlay()
 {
-    document.getElementById("btnPlayPause").setAttribute("src", imgPlay);
+    document.getElementById("btnPlayPause").style.backgroundImage = "url('./images/btns/au_play.svg')";//setAttribute("src", imgPlay);
     isPlaying = false;
 }
 

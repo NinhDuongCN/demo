@@ -27,17 +27,21 @@
         <div class="controllerGroup" id="audioController">
             <audio id="au" onended="PlayAudio()" onplay="SetBtnPause()" onpause="SetBtnPlay()" src="#" hidden aria-hidden="true"></audio>
             <div class="ctrlBtn" id="btnComment"></div>
-            <div class="ctrlBtn" id="btnPlayPause" tag="pause" onclick="BtnClicked()"></div>
+            <div class="ctrlBtn" id="btnPlayPause"  onclick="BtnClicked()"></div>
             <div class="ctrlBtn" id="btnNext" onclick="PlayAudio()"></div>
         </div>
 
         <div class="appGroup" id="appGroup">
+            <div class="app"></div>
+            <div class="app"></div>
+            <div class="app"></div>
+            <div class="app"></div>
+            <div class="app" id="LanHuoLong"></div>
             <div class="app" id="WDCD"></div>
             <div class="app" id="proposal"></div>
             <div class="app" id="NCm"></div>
             <div class="app" id="WDi"></div>
             <div class="app" id="WD"></div>
-            <div class="app" id="LanHuoLong"></div>
         </div>
     </div>
 
