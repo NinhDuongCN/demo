@@ -65,8 +65,8 @@ body{
     height: 12vw;
     padding: 2vw 0;
     width: 51vw;
-    display: flex;
     display: -webkit-flex;
+    display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
     justify-content: center;
@@ -121,7 +121,7 @@ body{
     
 }
 .app#blank{
-    cursor:auto;
+    cursor: context-menu;
     background: none;
 }
 .app#WDCD{
@@ -208,6 +208,7 @@ body{
         color:white;
         text-shadow: #000000 5px -4px 1em;
         margin: 1vh 0 0 0;
+        cursor: context-menu;
     }
 
     .ctrlBtn{

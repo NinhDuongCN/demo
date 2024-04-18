@@ -7,7 +7,7 @@ var changeaudio=false;
 
 function div_Clicked(){
     //if(changeaudio) return;
-    window.location = "https://NinhDuongCN.github.io/WDCD";
+    //window.location = "https://NinhDuongCN.github.io/WDCD";
     
 }
 
@@ -106,5 +106,58 @@ function appClicked(app){
 //#endregion app_clicked
 
 //#region memories
-let lstDate = [[2, 20], [3, 20], [5, 6], [5, 11], [8, 4], [8, 7], [8, 12], [9, 2], [12, 6]];
+let lstDate = [[2, 20], [3, 20], [5, 6], [5, 11], [8, 4], [8, 7], [8, 12], [9, 2], [12, 6]]; //thay đổi length ở dưới
+function Memo(){
+    var day = new Date();
+    var month = day.getMonth() + 1;
+    day = day.getDate();
+    var msg = ""; //Sự kiện sắp đến:
+    var index = 0;
+    if(month===12){
+        while(index < 9 /*lstDate.length*/){
+            if(lstDate[index][0] === 1){
+                msg += (lstDate[index][1]<10?"0":"") + lstDate[index][1] + "/01; ";
+                index++;
+            }
+            else{
+                break;
+            }
+        }
+        index = 8; /*lstDate.length - 1*/
+        while(index>-1){
+            if(lstDate[index][0] === 12)
+            {
+                if(lstDate[index][1] > day){
+                    msg = (lstDate[index][1]<10?"0":"") + lstDate[index][1] + "/12; " + msg;
+                }
+                index--;
+            }
+            else{
+                break;
+            }
+        }
+    }
+    else{
+        index = 0;
+        while(index < 9 /*lstDate.length*/){
+            if(lstDate[index][0] === month){
+                if(lst[index][1] > day){
+                    msg += (lstDate[index][1]<10?"0":"") + lstDate[index][1] + "/" + (month<3?"0":"") + month+"; ";
+                }
+            }
+            else if(lstDate[index][0] - month === 1){
+                
+                msg += (lstDate[index][1]<10?"0":"") + lstDate[index][1] + "/" + (lstDate[index][0]<3?"0":"") + lstDate[index][0]+"; ";
+            }
+            else if(lstDate[index][0]>month){
+                break;
+            }
+            index++;
+        }
+    }
+    if(msg===""){
+        return;
+    }
+    alert("Sự kiện sắp đến: " + msg);
+}
 //#endregion memories
