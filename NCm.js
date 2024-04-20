@@ -165,7 +165,7 @@ function Memo(){
 
     setTimeout(() => {
         ClosePopup("notif");
-    }, 30000);
+    }, 22000);
 }
 
 function ClosePopup(popupid){
