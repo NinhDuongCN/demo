@@ -158,6 +158,17 @@ function Memo(){
     if(msg===""){
         return;
     }
-    alert("Sự kiện sắp đến: " + msg);
+    //alert("Sự kiện sắp đến: " + msg);
+    document.getElementById("popmsg").innerText = msg;
+    document.getElementById("notif").classList.add("active");
+
+
+    setTimeout(() => {
+        ClosePopup("notif");
+    }, 30000);
+}
+
+function ClosePopup(popupid){
+    document.getElementById(popupid).classList.remove("active");
 }
 //#endregion memories
