@@ -141,7 +141,7 @@ function Memo(){
         index = 0;
         while(index < 9 /*lstDate.length*/){
             if(lstDate[index][0] === month){
-                if(lst[index][1] > day){
+                if(lstDate[index][1] > day){
                     msg += (lstDate[index][1]<10?"0":"") + lstDate[index][1] + "/" + (month<3?"0":"") + month+"; ";
                 }
             }
