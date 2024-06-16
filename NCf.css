@@ -1,0 +1,101 @@
+@charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-image: url("./images/bgr.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+#sum{
+    border: 2px solid #ffffff;
+    width: 60%;
+    height: 25vh;
+    display: block;
+    position: relative;
+    top: 2vh;
+    left: 50%;
+    transform: translate(-50%);
+    background: transparent;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
+    margin-bottom: 5vh;
+    font-family: 'Lobster', cursive;
+    font-weight: normal;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sum::before{
+    content: "Số dư tổng: ";
+}
+
+.fund-header{
+    background: #ffffe0;
+    width: 90%;
+    margin-top: 2vh;
+    left: 50%;
+    transform: translate(-50%);
+    position: relative;
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.fund-detail{
+    background: #fffffe;
+    width: 90%;
+    margin-top: 0vh;
+    left: 50%;
+    transform: translate(-50%);
+    position: relative;
+    padding: 5px 10px;
+    
+}
+.fund-detail>.ctrl{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.fund-detail>.ctrl>button{
+    min-width: 35%;
+    margin: 0 5%;
+    height: 4ex;
+    border-radius: 2ex;
+    border: none;
+    background-color: #ffffe0;
+    font-size: small;
+}
+.fund-detail>.ctrl>button:focus{
+    border: none;
+    background-color: #fefefe;
+}
+.fund-detail>table{
+    font-size: smaller;
+    border: #000 solid 1px;
+    border-radius: 4px;
+    width: 100%;
+    column-gap: 0;
+}
+td{
+    border: none;
+    border-top: 1px solid #0f0f0f;
+    text-align: right;
+}
+td.txt{
+    text-align: left;
+}
+td.date{
+    text-align: center;
+}

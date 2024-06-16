@@ -1,65 +1,133 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/icon" href="./images/MemoriesFavicon.svg" />
-    <link type="text/css" rel="stylesheet" href="./NCm.css" />
-    <script type="text/javascript" src="./NCm.js"></script>
-
-    <title>NguyênChâm's Memories</title>
-
-    <meta property="og:image" itemprop="thumbnailUrl" content="https://NguyenChamMemories.id.vn/images/thumbs/comingsoonThumbnail.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="NguyênChâm's Memories">
-    <meta property="og:url" content="https://NguyenChamMemories.id.vn">
-    <meta property="og:description" content="NguyênChâm's Memories">
-    <meta name="description" content="NguyênChâm's Memories">
-
+    <link type="text/css" rel="stylesheet" href="./NCf.css" />
+    <script type="text/javascript" src="./NCf.js"></script>
+    <title>NCFunds</title>
 </head>
-<body >
-    <noscript data-nosnippet>Cần bật javascript để trang hoạt động đầy đủ</noscript>
-    <!--<div id="msg" onclick="div_Clicked()">Coming soon</div>-->
-    <div class="popup" id="notif" onclick="ClosePopup('notif')">
-        <p class="popup_title" id="poptitle"></p>
-        <p class="popup_msg" id="popmsg"></p>
+<body>
+    <div class="header">
+        <div id="sum">4.000.000 VNĐ</div>
     </div>
-
-    <div class="container" id="divbgr" onclick="div_Clicked()"></div>
-    <div class="container" id="divMain">
-        <div class="controllerGroup" id="audioController">
-            <audio id="au" onended="PlayAudio()" onplay="SetBtnPause()" onpause="SetBtnPlay()" src="#" hidden aria-hidden="true"></audio>
-            <div class="ctrlBtn" id="btnComment"></div>
-            <div class="ctrlBtn" id="btnPlayPause"  onclick="BtnClicked()"></div>
-            <div class="ctrlBtn" id="btnNext" onclick="PlayAudio()"></div>
-            <p>Love you to the Moon and back</p>
+    <div class="fund" id="fMS">
+        <div class="fund-header" id="fMS-header">
+            <div class="fund-name" id="fMS-name">Quỹ Dưỡng già</div>
+            <div class="fund-total" id="fMS-total">2.000.000 VNĐ</div>
         </div>
-
-        <div class="appGroup" id="appGroup">
-            <div class="app" id="blank" onclick="div_Clicked()"></div>
-            <div class="app" id="blank" onclick="div_Clicked()"></div>
-            <div class="app" id="blank" onclick="div_Clicked()"></div>
-            <div class="app" id="blank" onclick="div_Clicked()"></div>
-            <div class="app" id="LanHuoLong" onclick="appClicked('LanHuoLong')"></div>
-            <div class="app" id="WDCD" onclick="appClicked('WDCD')"></div>
-            <div class="app" id="proposal" onclick="appClicked('proposal')"></div>
-            <div class="app" id="NCm"onclick="appClicked('NCm')"></div>
-            <div class="app" id="WDi"onclick="appClicked('WDi')"></div>
-            <div class="app" id="WD" onclick="appClicked('WD')"></div>
+        <div class="fund-detail" id="fMS-detail">
+            <div class="ctrl" id="fMS-ctrl">
+                <button class="ctrlItem" id="fMS-ctrlItem">Xem chi tiết</button>
+                <button class="ctrlItem" id="fMS-ctrlItem">Gửi thêm</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Tháng</th>
+                    <th>Số dư</th>
+                    <th>Lãi tạm tính</th>
+                    <th>Lãi dự kiến</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>2.000.000 VNĐ</td>
+                    <td>515 VNĐ</td>
+                    <td>94.000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                    <td>0 VNĐ</td>
+                </tr>
+            </table>
         </div>
     </div>
-
-    <!--play audio-->
-    <!--<img id="btnPlayPause" src="./images/btns/btn_play.svg" onclick="BtnClicked()" tag="pause" />-->
-    
-
+    <div class="fund" id="fWcChiun">
+        <div class="fund-header" id="fWcChiun-header">
+            <div class="fund-name" id="fWcChiun-name">Quỹ Đón Chiun</div>
+            <div class="fund-total" id="fWcChiun-total">2.000.000 VNĐ</div>
+        </div>
+        <div class="fund-detail" id="fWcChiun-detail">
+            <div class="ctrl" id="fWcChiun-ctrl">
+                <button class="ctrlItem" id="fWcChiun-ctrlItem">Gửi thêm</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Ngày gửi</th>
+                    <th>Nội dung</th>
+                    <th>Số tiền</th>
+                    <th>Ghi chú</th>
+                </tr>
+                <tr>
+                    <td class="date">14/6/2024</td>
+                    <td class="txt">Bố gửi</td>
+                    <td>2.000.000 VNĐ</td>
+                    <td class="txt"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 </body>
-<script language="javascript">
-    setTimeout(Memo, 3000);
-    CreateRandomLstNhac();
-    PlayAudio();
-</script>
 </html>
