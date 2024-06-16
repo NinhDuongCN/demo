@@ -77,7 +77,7 @@ body{
     background-color: #ffffe0;
     font-size: small;
 }
-.fund-detail>.ctrl>button:focus{
+.fund-detail>.ctrl>button:hover{
     border: none;
     background-color: #fefefe;
 }
