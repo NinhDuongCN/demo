@@ -13,12 +13,14 @@ body{
 
 #sum{
     border: 2px solid #ffffff;
-    width: 60%;
+    --w: 1vw;
+    width: calc(var(--w)*60);
+    height: calc(var(--w)*30);
     max-width: 600px;
-    height: 25vh;
+    max-height: 300px;
     display: block;
     position: relative;
-    top: 2vh;
+    top: 10vh;
     left: 50%;
     transform: translate(-50%);
     background: transparent;
@@ -28,7 +30,7 @@ body{
                 0px 10px 20px rgba(255,255,255,0.3),
                 0px 20px 40px rgba(255,255,255,0.4),
                 0px 20px 70px rgba(255,255,255,0.55);
-    margin-bottom: 5vh;
+    margin-bottom: 20vh;
     font-family: 'Lobster', cursive;
     font-weight: normal;
     font-size: x-large;
