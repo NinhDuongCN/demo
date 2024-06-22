@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test parameter</title>
+</head>
+<body>
+    <h1>Hi</h1>
+    <p><a style="color:#0000ff">?id=Test&Name=NyC&<b>require=ID</b></a> sẽ hiện value của key là value của require</p>
+</body>
+<script lang="javascript">
+    //trả về object chứa các tham số.
+    function GetParameters(){
+        let url = window.location.href;
+        let tmp = url.indexOf('?');
+        if(tmp < 3) return {};
+        var re = {};
+        url = url.slice(tmp+1);
+        url.split('&').forEach(element => {
+            tmp = element.indexOf('=');
+            if(tmp>0){
+                //thêm cặp key-value vào object bằng cách gán value cho key chưa tồn tại obj.key=value;
+                re[decodeURIComponent(element.slice(0,tmp))] = decodeURIComponent(element.slice(tmp+1));
+            }
+        });
+        return re;
+    }
+    //lấy các tham số
+    var parameters = GetParameters();
+    //có 2 cách để truy vấn đến tham số đã lấy: object.key hoặc object[key]
+    document.querySelector('h1').innerText = parameters[parameters.require];
+</script>
+</html>
