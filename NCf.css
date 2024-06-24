@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 *{
-    -webkit-transition: all ease 1s;
-    -moz-transition: all ease 1s;
-    -o-transition: all ease 1s;
-    transition: all ease 1s;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
 }
 
 body{
