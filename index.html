@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,123 +11,75 @@
     <div class="header">
         <div id="sum">4.000.000 VNĐ</div>
     </div>
-    <div class="fund" id="fMS">
-        <div class="fund-header" id="fMS-header" onclick="ShowDetailsMS()">
-            <div class="fund-name" id="fMS-name">Quỹ Dưỡng già</div>
-            <div class="fund-total" id="fMS-total">2.000.000 VNĐ</div>
-        </div>
-        <div class="fund-detail" id="fMS-detail">
-            <div class="ctrl" id="fMS-ctrl">
+    <div class="funds">
+        <div class="fund" id="fMS">
+            <div class="fund-header" id="fMS-header" onclick="ShowDetailsMS()">
+                <div class="fund-name" id="fMS-name">Quỹ Dưỡng già</div>
+                <div class="fund-total" id="fMS-total">2.000.000 VNĐ</div>
+            </div>
+            <div class="fund-ctrl" id="fMS-ctrl">
                 <button class="ctrlItem" id="fMS-ctrlItem">Xem chi tiết</button>
                 <button class="ctrlItem" id="fMS-ctrlItem">Gửi thêm</button>
             </div>
-            <table>
-                <tr>
-                    <th>Tháng</th>
-                    <th>Số dư</th>
-                    <th>Lãi tạm tính</th>
-                    <th>Lãi dự kiến</th>
-                </tr>
-                <tr>
-                    <td class="date">1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">2</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">3</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">4</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">5</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">6</td>
-                    <td>2.000.000</td>
-                    <td>515</td>
-                    <td>94.000</td>
-                </tr>
-                <tr>
-                    <td class="date">7</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">8</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">9</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">10</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">11</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td class="date">12</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-            </table>
+            <div class="fund-detail" id="fMS-detail">
+                <div class="fund-detail-row">
+                    <div class="detail-header detail-num">
+                        <div class="detail-title">Tháng 6</div>
+                        <div class="detail-balance">2.000.000 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-num">
+                        <div class="detail-title">Lãi tạm tính</div>
+                        <div class="detail-balance">2.575 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-num">
+                        <div class="detail-title">Lãi dự kiến</div>
+                        <div class="detail-balance">94.000 VNĐ</div>
+                    </div>
+                </div>
+                <div class="fund-detail-row">
+                    <div class="detail-header detail-num">
+                        <div class="detail-title">Tháng 7</div>
+                        <div class="detail-balance">2.000.000 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-num">
+                        <div class="detail-title">Lãi tạm tính</div>
+                        <div class="detail-balance">2.575 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-num">
+                        <div class="detail-title">Lãi dự kiến</div>
+                        <div class="detail-balance">94.000 VNĐ</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="fund" id="fWcChiun">
-        <div class="fund-header" id="fWcChiun-header" onclick="ShowDetailsWcChiun()"">
-            <div class="fund-name" id="fWcChiun-name">Quỹ Đón Chiun</div>
-            <div class="fund-total" id="fWcChiun-total">2.000.000 VNĐ</div>
-        </div>
-        <div class="fund-detail" id="fWcChiun-detail">
-            <div class="ctrl" id="fWcChiun-ctrl">
+        <div class="fund show" id="fWcChiun">
+            <div class="fund-header" id="fWcChiun-header" onclick="ShowDetailsWcChiun()"">
+                <div class="fund-name" id="fWcChiun-name">Quỹ Đón Chiun</div>
+                <div class="fund-total" id="fWcChiun-total">4.400.000 VNĐ</div>
+            </div>
+            <div class="fund-ctrl" id="fWcChiun-ctrl">
+                <button class="ctrlItem" id="fWcChiun-ctrlItem">Rút</button>
                 <button class="ctrlItem" id="fWcChiun-ctrlItem">Gửi thêm</button>
             </div>
-            <table>
-                <tr>
-                    <th>Ngày gửi</th>
-                    <th>Nội dung</th>
-                    <th>Số tiền</th>
-                    <th>Ghi chú</th>
-                </tr>
-                <tr>
-                    <td class="date">14/6/2024</td>
-                    <td class="txt">Bố gửi</td>
-                    <td>2.000.000</td>
-                    <td class="txt"></td>
-                </tr>
-            </table>
+            <div class="fund-detail" id="fWcChiun-detail">
+                <div class="fund-detail-row">
+                    <div class="detail-header detail-num">
+                        <div class="detail-title">22/6/2024</div>
+                        <div class="detail-balance">2.200.000 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-txt">Bố mẹ cho Chiun mua tã</div>
+                    <div class="detail-body detail-txtI">Cho Chiun mua bỉm</div>
+                </div>
+                <div class="fund-detail-row">
+                    <div class="detail-header detail-num">
+                        <div class="detail-title">22/6/2024</div>
+                        <div class="detail-balance">2.200.000 VNĐ</div>
+                    </div>
+                    <div class="detail-body detail-txt">Bố cho Chiun</div>
+                    <div class="detail-body detail-txt"></div>
+                </div>
+            </div>
         </div>
     </div>
-
 </body>
 </html>

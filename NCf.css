@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+*{
+    -webkit-transition: all ease 1s;
+    -moz-transition: all ease 1s;
+    -o-transition: all ease 1s;
+    transition: all ease 1s;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -19,14 +26,19 @@ body{
     height: calc(var(--w)*30);
     max-width: 600px;
     max-height: 300px;
+    min-width:  200px;
     display: block;
     position: relative;
     top: 10vh;
     left: 50%;
+    -ms-transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -moz-transform: translate(-50%);
     transform: translate(-50%);
-    background: transparent;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.4);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
     box-shadow: 0px 2px 10px rgba(255,255,255,0.2), 
                 0px 10px 20px rgba(255,255,255,0.3),
                 0px 20px 40px rgba(255,255,255,0.4),
@@ -41,52 +53,88 @@ body{
     align-items: center;
 }
 
-#sum::before{
-    content: "Số dư tổng: ";
+.funds{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 
 .fund{
     border-radius: 10px;
-    background: #fffffe;
-    width: 90%;
-    max-width: 600px;
-    left: 50%;
-    transform: translate(-50%);
+    border: 1px solid #ffffff;
+    background: rgba(255,255,224,0.3);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    --w: 1vw;
+    width: calc(var(--w)*86);
+    height: calc(var(--w)*54  - 20px);
     position: relative;
+    padding: 10px 0 10px 0;
+    margin: 0 10px 20px 10px;
+    overflow: hidden;
 }
 
-.fund-header{
-    background: #ffffe0;
-    width: calc(100%-20px);
-    margin-top: 2vh;
-    padding: 10px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: medium;
-    border-radius: 10px ;
+.fund:hover{
+    box-shadow: 0px 2px 10px rgba(255,255,255,0.2), 
+                0px 10px 20px rgba(255,255,255,0.3),
+                0px 20px 40px rgba(255,255,255,0.4),
+                0px 20px 70px rgba(255,255,255,0.55);
     cursor: pointer;
 }
 
-.fund-detail{
-    background: #fffffe;
-    width: calc(100%-20px);
-    margin-top: 0vh;
-    display: none;
-    padding: 5px 10px 10px 10px;
-    border-radius: 0 0 10px 10px  ;
-}
-.fund-detail.show{
-    display: block;
-}
-.fund-detail>.ctrl{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.fund-header{
+    position: relative;
+    height: calc(var(--w)*54);
 }
 
-.fund-detail>.ctrl>button{
+.fund-name{
+    font-size: 16pt;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.fund-total{
+    font-size: 22pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: calc(var(--w)*18);
+    position: relative;
+    margin-right: 5px;
+}
+
+.fund.show{
+    height: fit-content;
+    min-height: calc(var(--w)*54  - 20px);
+}
+
+.fund.show>.fund-header{
+    height: fit-content;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.fund.show>.fund-header>.fund-name{
+    font-size: 14pt;
+}
+.fund.show>.fund-header>.fund-total{
+    font-size: 14pt;
+    margin-top: 0;
+    text-align: right;
+    min-width: fit-content;
+}
+
+.fund-ctrl{
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+}
+
+.ctrlItem{
     min-width: 35%;
     margin: 0 5%;
     height: 4ex;
@@ -95,26 +143,78 @@ body{
     background-color: #ffffe0;
     font-size: small;
 }
-.fund-detail>.ctrl>button:hover{
-    border: 1px solid #0f0f0f;
-    /*background-color: #fefefe;*/
-    cursor: pointer;
+
+.fund-detail-row{
+    background: rgba(255,255,224,0.2);
+    padding: 10px;
 }
-.fund-detail>table{
-    font-size: smaller;
-    border: #000 solid 1px;
-    border-radius: 4px;
-    width: 100%;
-    column-gap: 0;
+
+.fund-detail-row:nth-of-type(odd){
+    background: rgba(255,255,224,0.45);
 }
-td{
-    border: none;
-    border-top: 1px solid #0f0f0f;
-    text-align: right;
+
+.fund-detail-row:hover{
+    background: rgba(255,255,224,0.75);
 }
-td.txt{
-    text-align: left;
+
+.detail-header{
+    font-size: 13pt;
+    font-weight: bold;
 }
-td.date{
-    text-align: center;
+
+.detail-body{
+    font-size: 12pt;
+    font-weight: normal;
+    min-height: 1em;
 }
+
+.detail-txtI{
+    font-style: italic;
+    font-size: 11pt;
+}
+
+.detail-num{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (orientation: landscape){
+    #sum{
+        top: 20px;
+        left: calc(100% - 20px);
+        -ms-transform: translate(-100%);
+        -webkit-transform: translate(-100%);
+        -o-transform: translate(-100%);
+        -moz-transform: translate(-100%);
+        transform: translate(-100%);
+        width: 300px;
+        height: 75px;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        justify-content: right;
+    }
+
+    .fund{
+        width: 8.6cm;
+        height: calc(5.4cm - 20px);
+    }
+
+    .fund.show{
+        min-height: calc(5.4cm - 20px);
+    }
+
+    .fund-total{
+        font-size: 22pt;
+        font-weight: bold;
+        text-align: center;
+        margin-top: calc(1.8cm);
+        position: relative;
+    }
+}
+
+#sum::before{
+    content: "Số dư tổng: ";
+    margin-right: 10px;
+}
+
