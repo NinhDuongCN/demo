@@ -86,7 +86,12 @@ body{
 .fund-header{
     position: relative;
     height: calc(var(--w)*54);
-}
+
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+} 
 
 .fund-name{
     font-size: 16pt;
