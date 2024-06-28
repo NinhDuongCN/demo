@@ -75,7 +75,7 @@ body{
     position: relative;
     padding: 10px 0 10px 0;
     margin: 0 10px 20px 10px;
-    overflow: hidden;
+    overflow: hidden visible;
 }
 
 .fund:hover{
