@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-/* *{
-    -webkit-transition: all ease 1s;
-    -moz-transition: all ease 1s;
-    -o-transition: all ease 1s;
-    transition: all ease 1s;
-} */
+ *{
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    -o-transition: all ease .5s;
+    transition: all ease .5s;
+} 
 
 body{
     margin: 0;
@@ -101,10 +101,10 @@ body{
 
     flex: 1 0 fit-content;
 
-    -webkit-transition: all ease .5s;
+    /*-webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     -o-transition: all ease .5s;
-    transition: all ease .5s; 
+    transition: all ease .5s;*/ 
 }
 
 .fund-total{
@@ -118,10 +118,10 @@ body{
     margin-top: calc(var(--w)*18);
     margin-right: 5px;
 
-    -webkit-transition: all ease .5s;
+    /*-webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     -o-transition: all ease .5s;
-    transition: all ease .5s; 
+    transition: all ease .5s; */
 }
 
 .fund.show{
@@ -177,10 +177,10 @@ body{
     -ms-transform: scale(110%);
     transform: scale(110%);
 
-    -webkit-transition: all ease .5s;
+    /*-webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     -o-transition: all ease .5s;
-    transition: all ease .5s; 
+    transition: all ease .5s;*/
 }
 
 .fund-detail-row{
