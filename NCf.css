@@ -87,8 +87,7 @@ body{
 }
 
 .fund-header{
-    position: sticky;
-    top: 10px;
+    position: relative;
     display: -webkit-flex;
     display: flex;
     -ms-flex-wrap: wrap;
