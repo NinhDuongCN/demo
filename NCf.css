@@ -162,6 +162,25 @@ body{
     border: none;
     background-color: #ffffe0;
     font-size: small;
+    cursor: pointer;
+}
+
+.ctrlItem:hover{
+    
+    box-shadow: 0px 2px 10px rgba(255,255,255,0.2), 
+                0px 10px 20px rgba(255,255,255,0.3),
+                0px 20px 40px rgba(255,255,255,0.4),
+                0px 20px 70px rgba(255,255,255,0.55);
+    -o-transform: scale(110%);
+    -webkit-transform: scale(110%);
+    -moz-transform: scale(110%);
+    -ms-transform: scale(110%);
+    transform: scale(110%);
+
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    -o-transition: all ease .5s;
+    transition: all ease .5s; 
 }
 
 .fund-detail-row{
