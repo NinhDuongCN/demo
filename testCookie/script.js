@@ -1,5 +1,7 @@
 function saveCookies(username, authCode){
-    document.cookie = 'u='+username+';au='+authCode+';path=/';
+    document.cookie = 'u='+username;
+    document.cookie = 'au='+authCode;
+    document.cookie = 'path=/';
     alert(document.cookie + ";" + username + ";" + authCode);
 }
 
