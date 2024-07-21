@@ -1,22 +1,28 @@
 function saveCookies(username, authCode){
-    document.cookie = 'u='+username;
-    document.cookie = 'au='+authCode;
+    document.cookie = 'u='+username + ";path=/";
+    document.cookie = 'au='+authCode + ";path=/";
     alert(document.cookie);
 }
 
-function getUAu(){
-    var re = {};
-    var cookie = document.cookie;
-    alert(cookie);
-    var itmp = 0;
-    re.username = cookie.substring(itmp=cookie.indexOf('u=')+1, cookie.indexOf(';', itmp)-itmp);
-    re.authCode = cookie.substring(itmp=cookie.indexOf('au=')+1, cookie.indexOf(';', itmp)-itmp);
-    return re;
+function GetCookieValue(key){
+   return document.cookie
+                  .split("; ")
+                  .find((row) => row.startsWith(key+"="))
+                  ?.split("=")[1];
 }
 
+// function getUAu(){
+//     var re = {};
+//     alert(cookie);
+//     var itmp = 0;
+//     re.username = GetCookieValue('u');
+//     re.authCode = GetCookieValue('au');
+//     return re;
+// }
+
 function GetCookie(){
-    var va = getUAu();
-    document.querySelector("#msg").innerText = "username=" + va.username + "; authCode=" + va.authCode;
+    
+    document.querySelector("#msg").innerText = "username=" + GetCookieValue('u') + "; authCode=" + GetCookieValue('au');
 }
 
 function ChangePassword(){
