@@ -1,6 +1,10 @@
 function saveCookies(username, authCode){
-    document.cookie = 'u='+username + ";path=/";
-    document.cookie = 'au='+authCode + ";path=/";
+    const d = new Date();
+    d.setTime(d.getTime() + 1200000);
+    let expires = ";expires=" + d.toUTCString();
+    
+    document.cookie = 'u='+username + expires + ";path=/" ;
+    document.cookie = 'au='+authCode + expires + ";path=/";
     alert(document.cookie);
 }
 
