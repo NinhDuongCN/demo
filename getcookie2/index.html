@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test user login</title>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+        #msg::before{
+            content:"msg: ";
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="u" id="username" placeholder="username">
+        <input type="password" name="p" id="password" placeholder="password">
+        <input type="password" name="np" id="npassword" placeholder="new password">
+        <button type="button" onclick=Login()>Login</button>
+        <button type="button" onclick=ChangePassword()>ChangePassword</button>
+        <button type="button" onclick=GetCookie()>GetCookie</button>
+    </form>
+    
+    <p id="msg"></p>
+</body>
+<script>
+   
+</script>
+</html>
