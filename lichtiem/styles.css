@@ -55,6 +55,11 @@ body {
 #menubar li:hover {
     color: #00C1FF;
 }
+#searchInput {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 #menubar select {
     padding: 5px 10px;
     border-radius: 5px;
