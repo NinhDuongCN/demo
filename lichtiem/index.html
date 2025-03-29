@@ -5,33 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sổ tiêm chủng</title>
     <link type="text/css" rel="stylesheet" href="./styles.css" />
-    <script type="text/javascript" src="./script.js"></script>
+    
 </head>
 <body>
-    <section id="secBanner">
-        <a>Sổ tiêm chủng</a>
-        <a>Ha Chiun</a>
-    </section>
-    <section id="menubar">
-        <ul>
-            <li>
-                <select >
-                    <option value="dstong">Danh sách tổng</option>
-                    <option value="dsdatiem">Đã tiêm</option>
-                    <option value="dschuatiem">Chưa tiêm</option>
-                    <option value="dsdenhan">Đến hạn</option>
-                    <option value="dsquahan">Quá hạn</option>
-                </select>
-            </li>
-            <li>Tìm kiếm</li>
-            <li>Chiun</li>
-        </ul>
+    <section id="header">
+        <section id="secBanner">
+            <a>Sổ tiêm chủng</a>
+            <a>Ha Chiun</a>
+        </section>
+        <section id="menubar">
+            <ul>
+                <li>
+                    <select >
+                        <option value="dstong">Danh sách tổng</option>
+                        <option value="dsdatiem">Đã tiêm</option>
+                        <option value="dschuatiem">Chưa tiêm</option>
+                        <option value="dsdenhan">Đến hạn</option>
+                        <option value="dsquahan">Quá hạn</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" id="searchInput" placeholder="Nhập từ khóa để tìm...">
+                </li>    
+            </ul>
+        </section>
     </section>
     <section id="secList">
         <div class="card" id="item1">
             <details>
                 <summary>
-                    <a>Viêm gan B (mũi 1)</a>
+                    <a class="card-name">Viêm gan B (mũi 1)</a>
                     <a>Đã tiêm</a>
                 </summary>
                 <div class="card-detail">
@@ -48,10 +51,10 @@
                 </div>
             </details>
         </div>
-        <div class="card" id="item22">
+        <div class="card" id="item2">
             <details>
                 <summary>
-                    <a>6 trong 1 (mũi 3)</a>
+                    <a class="card-name">6 trong 1 (mũi 3)</a>
                     <a>Chưa tiêm</a>
                 </summary>
                 <div class="card-detail">
@@ -63,6 +66,8 @@
                 </div>
             </details>
         </div>
+        
     </section>
 </body>
+<script type="text/javascript" src="./script.js"></script>
 </html>
