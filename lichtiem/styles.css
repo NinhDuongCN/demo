@@ -1,4 +1,5 @@
 /* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -39,32 +40,38 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
+    gap: 20px; */
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
-    
 }
 #menubar li {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     color: white;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    width: 100%;
 }
 #menubar li:hover {
     color: #00C1FF;
 }
 #searchInput {
-    padding: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    font-size: 1em;
+    width: calc(100% - 20px);
 }
 #menubar select {
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1em;
+    width: 100%;
 }
 
 /* Cards Section */
@@ -79,8 +86,8 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: fit-content;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
     transform: translateY(-5px);
@@ -88,6 +95,8 @@ body {
 }
 .card summary {
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
     color: #005A9E;
     cursor: pointer;
 }
@@ -98,6 +107,11 @@ body {
     font-size: 0.9em;
     color: #333;
 }
+
+.card-button{
+    display: flex;
+    justify-content: center;
+}
 .card-button button {
     margin-top: 10px;
     padding: 10px 15px;
@@ -107,7 +121,46 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 .card-button button:hover {
     background-color: #005A9E;
+}
+
+/* section footer */
+#footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0078D7;
+    color: white;
+    margin-top: 2em;
+    padding: 10px;
+    font-size: 0.8em;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    bottom:0;
+    position: sticky;
+}
+
+#footer a{
+    text-decoration: none;
+    color: white;
+}
+
+#footer .footerbtn{
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: none;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#footer .footerbtn#backtoChiun{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('https://www.NguyenChamMemories.id.vn/images/HuoLongFavicon.svg');
 }

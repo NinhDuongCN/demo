@@ -4,7 +4,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
 
     cards.forEach(card => {
         const textContent = card.querySelector('.card-name').innerHTML.toLowerCase();
-        if (textContent.includes(query)) {
+        if (textContent.indexOf(query)===0) {
             card.style.display = 'block';
         } else {
             card.style.display = 'none';
