@@ -8,30 +8,38 @@
     
 </head>
 <body>
+    <section id="secPopup">
+        <div class="popup notif inactive" id="notif-popup" onclick="CloseDlg('notif-popup')">
+            <p class="popup-title" id="notif-title"></p>
+            <p class="popup-msg">[04/05/2025] 6 trong 1 (mũi 3)</p>
+        </div>
+        <div class="popup updateDlg inactive" id="updateDlg"></div>
+    </section>
     <section id="header">
         <section id="secBanner">
             <a>Sổ tiêm chủng</a>
-            <a>Ha Chiun</a>
+            <!-- <a>Ha Chiun</a> -->
         </section>
         <section id="menubar">
             <ul>
                 <li>
-                    <select >
-                        <option value="dstong">Danh sách tổng</option>
-                        <option value="dsdatiem">Đã tiêm</option>
-                        <option value="dschuatiem">Chưa tiêm</option>
-                        <option value="dsdenhan">Đến hạn</option>
-                        <option value="dsquahan">Quá hạn</option>
+                    <select onchange="select_listview_changed()" id="viewmode">
+                        <option value="all">Danh sách tổng</option>
+                        <option value="done">Đã tiêm</option>
+                        <option value="undone">Chưa tiêm</option>
+                        <option value="coming" selected>Gần đến hạn</option>
+                        <option value="due">Đến hạn</option>
+                        <option value="over">Quá hạn</option>
                     </select>
                 </li>
                 <li>
-                    <input type="text" id="searchInput" placeholder="Nhập từ khóa để tìm...">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm">
                 </li>    
             </ul>
         </section>
     </section>
     <section id="secList">
-        <div class="card" id="item1">
+        <div class="card" id="TC1">
             <details>
                 <summary>
                     <a class="card-name">Viêm gan B (mũi 1)</a>
@@ -51,7 +59,7 @@
                 </div>
             </details>
         </div>
-        <div class="card" id="item2">
+        <div class="card" id="TC2">
             <details>
                 <summary>
                     <a class="card-name">6 trong 1 (mũi 3)</a>
@@ -62,11 +70,11 @@
                     <a>25/11/2024</a>
                 </div>
                 <div class="card-button">
-                    <button>Cập nhật mũi tiêm</button>
+                    <button onclick="ShowUpdateDlg('TC2', '6 trong 1 (mũi 3)', '2024-11-25')">Cập nhật mũi tiêm</button>
                 </div>
             </details>
         </div>
-        <div class="card additembtn" id="btnadd" >
+        <div class="card additembtn" >
             <details>
                 <summary>
                     <a class="card-name"><i>Thêm mũi tiêm</i></a>
@@ -74,15 +82,15 @@
                 </summary>
                 <div class="card-detail">
                     <a>Loại</a>
-                    <a contenteditable="true">Tên mũi tiêm</a>
+                    <a contenteditable="true" class="aedit" id="tenmui">Tên mũi tiêm</a>
                 </div>
                 <div class="card-detail">
                     <a>Mũi tiêm thứ</a>
-                    <a contenteditable="true">1</a>
+                    <a contenteditable="true" class="aedit" id="muithu">1</a>
                 </div>
                 <div class="card-detail">
                     <a>Ngày dự kiến tiêm</a>
-                    <a contenteditable="true">24/11/2024</a>
+                    <a contenteditable="true" class="aedit" id="dukien">24/11/2024</a>
                 </div>
                 <div class="card-button">
                     <button>Thêm mũi tiêm</button>

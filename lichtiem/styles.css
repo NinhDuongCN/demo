@@ -7,33 +7,143 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header */
 #header{
     top:0;
     position: sticky;
 }
 
+/* Popup section */
+#notif-title::after{
+    content: "Chú ý lịch tiêm";
+    display: block;
+}
+#updateDlg-title::before{
+    content: "Cập nhật mũi tiêm";
+    display: block;
+}
+/* General styles for the popup section */
+#secPopup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+/* Popup container styles */
+.popup {
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Popup title styles */
+.popup-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Popup message styles */
+.popup-msg {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Select dropdown styles */
+.updateDlg select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit; /* Ensures font consistency */
+}
+
+/* Update detail container styles */
+.update-detail {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-detail a {
+    font-weight: normal;
+    /* color: #333333; */
+}
+
+.update-item {
+    width: calc(60%);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit; /* Ensures font consistency */
+    font-size: 14px; /* Applies consistent font size */
+}
+
+/* Button styles */
+.update-button{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    font-family: inherit; /* Ensures font consistency */
+    width: calc(40%);
+}
+
+.update-button button:hover {
+    background-color: #0056b3;
+}
+
+/* Active and inactive state styles */
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}
+
 /* Banner Section */
 #secBanner {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #0078D7;
     color: white;
     padding: 15px 20px;
     font-size: 1.5em;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    
-    
 }
 #secBanner a {
     text-decoration: none;
     color: white;
+    font-weight: bold;
 }
 
 /* Menu Bar */
 #menubar {
     background-color: #005A9E;
-    padding: 10px 20px;
+    padding: 10px 15px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 #menubar ul {
@@ -45,7 +155,7 @@ body {
     gap: 20px; */
     display: grid;
     grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    gap: 10px;
 }
 #menubar li {
     /* display: flex; */
@@ -126,6 +236,15 @@ body {
 .card-button button:hover {
     background-color: #005A9E;
 }
+
+.card.additembtn .card-detail a.aedit{
+    border-bottom: #005A9E solid 1px;
+    min-width: 10px;
+    outline: none;
+    color: #005A9E;
+    text-align: right;
+}
+
 
 /* section footer */
 #footer{
