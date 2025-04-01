@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sổ tiêm chủng</title>
     <link type="text/css" rel="stylesheet" href="./styles.css" />
-    
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <section id="secPopup">
         <div class="popup notif inactive" id="notif-popup" onclick="CloseDlg('notif-popup')">
             <p class="popup-title" id="notif-title"></p>
-            <p class="popup-msg">[04/05/2025] 6 trong 1 (mũi 3)</p>
+            <p class="popup-msg" id="notif-msg"></p>
         </div>
         <div class="popup updateDlg inactive" id="updateDlg"></div>
     </section>
@@ -39,64 +40,7 @@
         </section>
     </section>
     <section id="secList">
-        <div class="card" id="TC1">
-            <details>
-                <summary>
-                    <a class="card-name">Viêm gan B (mũi 1)</a>
-                    <a>Đã tiêm</a>
-                </summary>
-                <div class="card-detail">
-                    <a>Ngày tiêm</a>
-                    <a>25/11/2024</a>
-                </div>
-                <div class="card-detail">
-                    <a>Tên vaccine</a>
-                    <a>...</a>
-                </div>
-                <div class="card-detail">
-                    <a>Nơi tiêm</a>
-                    <a>BVPS Hải Phòng</a>
-                </div>
-            </details>
-        </div>
-        <div class="card" id="TC2">
-            <details>
-                <summary>
-                    <a class="card-name">6 trong 1 (mũi 3)</a>
-                    <a>Chưa tiêm</a>
-                </summary>
-                <div class="card-detail">
-                    <a>Ngày dự kiến tiêm</a>
-                    <a>25/11/2024</a>
-                </div>
-                <div class="card-button">
-                    <button onclick="ShowUpdateDlg('TC2', '6 trong 1 (mũi 3)', '2024-11-25')">Cập nhật mũi tiêm</button>
-                </div>
-            </details>
-        </div>
-        <div class="card additembtn" >
-            <details>
-                <summary>
-                    <a class="card-name"><i>Thêm mũi tiêm</i></a>
-                    <a>+</a>
-                </summary>
-                <div class="card-detail">
-                    <a>Loại</a>
-                    <a contenteditable="true" class="aedit" id="tenmui">Tên mũi tiêm</a>
-                </div>
-                <div class="card-detail">
-                    <a>Mũi tiêm thứ</a>
-                    <a contenteditable="true" class="aedit" id="muithu">1</a>
-                </div>
-                <div class="card-detail">
-                    <a>Ngày dự kiến tiêm</a>
-                    <a contenteditable="true" class="aedit" id="dukien">24/11/2024</a>
-                </div>
-                <div class="card-button">
-                    <button>Thêm mũi tiêm</button>
-                </div>
-            </details>
-        </div>
+        
     </section>
     <section id="footer">
         <a></a>
