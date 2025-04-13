@@ -7,6 +7,8 @@ const API='https://script.google.com/macros/s/AKfycbwFdSzEzuhdGsTydzb_dyNIZ5DgVl
 const DA_TIEM = "Đã tiêm";
 // const CHUA_TIEM = "Chưa tiêm";
 // const DEN_HAN = "Đến hạn tiêm";
+const COMPLETE = "Hoàn thành";
+// const INCOMPLETE = "Chưa hoàn thành";
 
 const BTN_ADD_CARD = `<div class="card additembtn active" >
             <details>
@@ -227,8 +229,65 @@ function ShowCards(items){
     document.querySelector("#secList").innerHTML = chtml;
 }
 
+function ShowCards2(items){
+    var chtml='';
+    var card='';
+    items.forEach(item=>{
+        card = `<div class="card">
+                    <details>
+                        <summary>
+                            <a class="card-name">${item.loai}</a>
+                            <a>${item.trangthailoai} (${(item.trangthailoai === COMPLETE)? item.tongmui : (item.lantiem.length-1)}/${item.tongmui})</a>
+                        </summary>
+                `;
+        item.lantiem.forEach(lan =>{
+            if(lan.trangthai === DA_TIEM){
+                card += `<div class="card-detail-group">
+                            <div class="group-title">
+                                <a class="grpttl-name">${(!lan.mui)?"":"Liều "+lan.mui}</a>
+                                <a class="grpttl-status">Đã tiêm</a>
+                            </div>
+                            <div class="card-detail">
+                                <a>Ngày tiêm</a>
+                                <a>${lan.ngaytiem}</a>
+                            </div>
+                            <div class="card-detail">
+                                <a>Tên vaccine</a>
+                                <a>${lan.vaccine}</a>
+                            </div>
+                            <div class="card-detail">
+                                <a>Nơi tiêm</a>
+                                <a>${lan.noitiem}</a>
+                            </div>
+                        </div>
+                        `;
+            }else{
+                card += `<div class="card-detail-group">
+                            <div class="group-title">
+                                <a class="grpttl-name">${(!lan.mui)?"":"Liều "+lan.mui}</a>
+                                <a class="grpttl-status">${lan.trangthai}</a>
+                            </div>
+                            <div class="card-detail">
+                                <a>Ngày dự kiến tiêm</a>
+                                <a>${lan.dukien}</a>
+                            </div>
+                            <div class="card-button">
+                                <button onclick="ShowUpdateDlg('${lan.id}', '${item.loai} ${lan.mui==undefined?"":("(liều "+lan.mui+")")}', '${lan.dukien}')">Cập nhật mũi tiêm</button>
+                            </div>
+                        </div>
+                        `;
+            }
+        });
+        chtml += (card + `
+                            </details>
+                         </div>
+                         `);
+    });
+    document.querySelector("#secList").innerHTML = chtml;
+}
+
 function ShowAllCards(item){
-    ShowCards(item);
+    ShowCards2(item);
     document.querySelector("#secList").innerHTML += BTN_ADD_CARD;
 }
 

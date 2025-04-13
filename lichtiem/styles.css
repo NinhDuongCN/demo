@@ -210,6 +210,30 @@ body {
     color: #005A9E;
     cursor: pointer;
 }
+
+.card-detail-group {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.group-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.grpttl-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.grpttl-status {
+    font-size: 14px;
+    color: #007BFF;
+}
+
 .card-detail {
     margin-top: 10px;
     display: flex;
