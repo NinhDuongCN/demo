@@ -10,30 +10,31 @@ const DA_TIEM = "Đã tiêm";
 const COMPLETE = "Hoàn thành";
 // const INCOMPLETE = "Chưa hoàn thành";
 
-const BTN_ADD_CARD = `<div class="card additembtn active" >
-            <details>
-                <summary>
-                    <a class="card-name"><i>Thêm mũi tiêm</i></a>
-                    <a>+</a>
-                </summary>
-                <div class="card-detail">
-                    <a>Loại</a>
-                    <a contenteditable="true" class="aedit" id="tenmui">Tên mũi tiêm</a>
-                </div>
-                <div class="card-detail">
-                    <a>Liều thứ</a>
-                    <a contenteditable="true" class="aedit" id="muithu">1</a>
-                </div>
-                <div class="card-detail">
-                    <a>Ngày dự kiến tiêm</a>
-                    <a contenteditable="true" class="aedit" id="dukien">24/11/2024</a>
-                </div>
-                <div class="card-button">
-                    <button>Thêm mũi tiêm</button>
-                </div>
-            </details>
-        </div>`;
-
+function BTN_ADD_CARD(date){
+    return `<div class="card additembtn active" >
+                <details>
+                    <summary>
+                        <a class="card-name"><i>Thêm mũi tiêm</i></a>
+                        <a>+</a>
+                    </summary>
+                    <div class="card-detail">
+                        <a>Loại</a>
+                        <input type="text" id="addloai" placeholder="Tên mũi tiêm"/>
+                    </div>
+                    <div class="card-detail">
+                        <a>Tổng mũi</a>
+                        <input type="number" min="0" max="10" id="addtongmui" value="1"/>
+                    </div>
+                    <div class="card-detail">
+                        <a>Ngày dự kiến tiêm</a>
+                        <input type="date" id="adddukien" value="${Date2YYYYMMDD(date)}"/>
+                    </div>
+                    <div class="card-button">
+                        <button onclick="SendAddRequest()">Thêm mũi tiêm</button>
+                    </div>
+                </details>
+            </div>`;
+}
 
 document.addEventListener('DOMContentLoaded', function(){
     RequestStart();
@@ -158,6 +159,8 @@ function RequestData(request){
                 //coming:
                 if(request==='all'){
                     ShowAllCards(responseData.data);
+                } else if(request.includes("complete")){
+                    ShowCards2(responseData.data);
                 } else{
                     ShowCards(responseData.data);
                 }
@@ -172,7 +175,6 @@ function RequestData(request){
 
 
 function ShowNotif(coming){
-    console.log(coming);
     if(coming == undefined) return;
     if(coming.length < 1) return;
     var msg = '';
@@ -288,7 +290,7 @@ function ShowCards2(items){
 
 function ShowAllCards(item){
     ShowCards2(item);
-    document.querySelector("#secList").innerHTML += BTN_ADD_CARD;
+    document.querySelector("#secList").innerHTML += BTN_ADD_CARD(new Date());
 }
 
 // function Date2String(date){
@@ -298,3 +300,61 @@ function ShowAllCards(item){
 //     re += '/' + date.getFullYear();
 //     return re;
 // }
+
+function Date2YYYYMMDD(date){
+    var v=date.getFullYear();
+    var re = v + '-';
+    re += ((v=date.getMonth() + 1) < 10?'0':'') + v;
+    re += '-' + ((v=date.getDate()) < 10?'0':'') + v;
+    return re;
+}
+
+function YMD2DMY(value){
+    var re = value.split('-');
+    return `${re[2]}/${re[1]}/${re[0]}`;
+}
+
+function SendAddRequest(){
+    //API?r=add&loai=xx&mui=xx&dukien=xx&tongmui=xx
+    var request = '';
+    var value = document.querySelector("#addloai").value;
+    if(value == ''){
+        alert("Chưa nhập tên");
+        return;
+    }
+    request += `&loai=${value}`;
+    value = document.querySelector("#addtongmui").value;
+    if(value == '' || value < 1 || value > 9 || value % 1 != 0){
+        alert(`Giá trị tổng số mũi không đúng (${value})`);
+        return;
+    }
+    request += `&tongmui=${value}`;
+    value = document.querySelector("#adddukien").value;
+    if(value=='' || value == undefined){
+        alert(`Ngày dự kiến tiêm mũi đầu không đúng (${value})`);
+        return;
+    }
+    request += `&dukien=${YMD2DMY(value)}&mui=1`;
+    console.log(request);
+
+    $.ajax({ //Sử dụng Ajax gửi lệnh
+        url: `${API}?r=add&${request}`,
+        method: "GET",
+        dataType: 'json',
+        data: '',
+        success: function(responseData, textStatus, jqXHR) {
+            if(textStatus!='success'){                
+                alert('Không lấy được dữ liệu ' + responseData.msg);
+            }
+            else{
+                alert("Thêm mới thành công");
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
+            console.log(errorThrown);
+        }
+    });
+
+    RequestData("all");
+}
