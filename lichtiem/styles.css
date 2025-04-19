@@ -25,9 +25,10 @@ body {
 /* General styles for the popup section */
 #secPopup {
     position: fixed;
-    top: 20px;
+    /* top: 20px; */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 350px;
     z-index: 1000;
     font-family: Arial, sans-serif;
@@ -58,6 +59,11 @@ body {
     font-size: 16px;
     color: #333333;
     margin-bottom: 10px;
+}
+
+.popup.notif{
+    top: calc(-50vh + 20px);
+    position: fixed;
 }
 
 /* Select dropdown styles */
@@ -268,9 +274,53 @@ body {
     color: #005A9E;
     text-align: right;
     border: none;
+    background-color: inherit;
     font: inherit
 }
 
+/* section loader */
+.secloader{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Mờ 90% */
+    position: fixed;
+    z-index: 9999;
+}
+.secloader.inactive{
+    display: none;
+}
+
+#loader{
+    border: 12px solid #f3f3f3; /* Màu viền ngoài */
+    border-top: 12px solid #3498db; /* Màu viền trên */
+    border-radius: 50%; /* Bo tròn */
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Hiệu ứng xoay */
+}
+
+/* Tạo hiệu ứng xoay */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loader-title{
+    /* display: block; */
+    font: inherit;
+    color: white;
+}
 
 /* section footer */
 #footer{

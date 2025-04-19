@@ -36,7 +36,59 @@ function BTN_ADD_CARD(date){
             </div>`;
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+function YMD2DMY(value){
+    var re = value.split('-');
+    return `${re[2]}/${re[1]}/${re[0]}`;
+}
+
+function SendAddRequest(){
+    //API?r=add&loai=xx&mui=xx&dukien=xx&tongmui=xx
+    var request = '';
+    var value = document.querySelector("#addloai").value;
+    if(value == ''){
+        alert("Chưa nhập tên");
+        return;
+    }
+    request += `&loai=${value}`;
+    value = document.querySelector("#addtongmui").value;
+    if(value == '' || value < 1 || value > 9 || value % 1 != 0){
+        alert(`Giá trị tổng số mũi không đúng (${value})`);
+        return;
+    }
+    request += `&tongmui=${value}`;
+    value = document.querySelector("#adddukien").value;
+    if(value=='' || value == undefined){
+        alert(`Ngày dự kiến tiêm mũi đầu không đúng (${value})`);
+        return;
+    }
+    request += `&dukien=${YMD2DMY(value)}&mui=1`;
+    // console.log(request);
+    ShowLoader();
+    $.ajax({ //Sử dụng Ajax gửi lệnh
+        url: `${API}?r=add&${request}`,
+        method: "GET",
+        dataType: 'json',
+        data: '',
+        success: function(responseData, textStatus, jqXHR) {
+            if(textStatus!='success'){                
+                alert('Không lấy được dữ liệu ' + responseData.msg);
+            }
+            else{
+                alert("Thêm mới thành công");
+                //console.log(responseData.data);
+                ShowAllCards(responseData.data);
+            }
+            HideLoader();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
+            console.log(errorThrown);
+            HideLoader();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function(){    
     RequestStart();
 })
 
@@ -59,6 +111,13 @@ document.getElementById('searchInput').addEventListener('input', function() {
     }
 });
 
+function ShowLoader(){
+    document.querySelector("#secloader.inactive").classList.replace("inactive", "active");
+}
+function HideLoader(){
+    document.querySelector("#secloader.active").classList.replace("active", "inactive");
+}
+
 function CloseDlg(id){
     document.getElementById(id).classList.replace("active", "inactive");
 }
@@ -74,13 +133,13 @@ function ShowUpdateDlg(id, ten, dukien){
         <div class="active" id="upchuatiem">
             <div class="update-detail">
                 <a>Dự kiến tiêm</a>
-                <input name="dukien" type="date"  class="update-item" id="u-dukien" value="${dukien}">
+                <input name="dukien" type="date"  class="update-item" id="u-dukien" value="${DMY2YMD(dukien)}">
             </div>
         </div>
         <div class="inactive" id="updatiem">
             <div class="update-detail">
                 <a>Ngày tiêm</a>
-                <input name="ngaytiem" type="date" class="update-item" id="u-ngaytiem" value="${dukien}">
+                <input name="ngaytiem" type="date" class="update-item" id="u-ngaytiem" value="${DMY2YMD(dukien)}">
             </div>
             <div class="update-detail">
                 <a>Tên Vaccine</a>
@@ -97,6 +156,11 @@ function ShowUpdateDlg(id, ten, dukien){
         </div>
     `;
     dlg.classList.replace("inactive", "active");
+}
+
+function DMY2YMD(value){
+    var re = value.split("/");
+    return `${re[2]}-${(re[1]<10?'0':'')+re[1]}-${(re[0]<10?'0':'')+re[0]}`;
 }
 
 function select_value_changed(){
@@ -118,7 +182,7 @@ function select_listview_changed(){
 
 
 function RequestStart(){
-
+    ShowLoader();
     $.ajax({ //Sử dụng Ajax gửi lệnh
         url: `${API}?r=start`,
         method: "GET",
@@ -135,15 +199,20 @@ function RequestStart(){
                 ShowNotif(responseData.coming);
                 ShowAllCards(responseData.all);
             }
+            HideLoader();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
             console.log(errorThrown);
-        }
+            HideLoader();
+        },
+        
     });
+    
 }
 
 function RequestData(request){
+    ShowLoader();
     $.ajax({ //Sử dụng Ajax gửi lệnh
         url: `${API}?r=${request}`,
         method: "GET",
@@ -165,10 +234,12 @@ function RequestData(request){
                     ShowCards(responseData.data);
                 }
             }
+            HideLoader();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
             console.log(errorThrown);
+            HideLoader();
         }
     });
 }
@@ -309,52 +380,3 @@ function Date2YYYYMMDD(date){
     return re;
 }
 
-function YMD2DMY(value){
-    var re = value.split('-');
-    return `${re[2]}/${re[1]}/${re[0]}`;
-}
-
-function SendAddRequest(){
-    //API?r=add&loai=xx&mui=xx&dukien=xx&tongmui=xx
-    var request = '';
-    var value = document.querySelector("#addloai").value;
-    if(value == ''){
-        alert("Chưa nhập tên");
-        return;
-    }
-    request += `&loai=${value}`;
-    value = document.querySelector("#addtongmui").value;
-    if(value == '' || value < 1 || value > 9 || value % 1 != 0){
-        alert(`Giá trị tổng số mũi không đúng (${value})`);
-        return;
-    }
-    request += `&tongmui=${value}`;
-    value = document.querySelector("#adddukien").value;
-    if(value=='' || value == undefined){
-        alert(`Ngày dự kiến tiêm mũi đầu không đúng (${value})`);
-        return;
-    }
-    request += `&dukien=${YMD2DMY(value)}&mui=1`;
-    console.log(request);
-
-    $.ajax({ //Sử dụng Ajax gửi lệnh
-        url: `${API}?r=add&${request}`,
-        method: "GET",
-        dataType: 'json',
-        data: '',
-        success: function(responseData, textStatus, jqXHR) {
-            if(textStatus!='success'){                
-                alert('Không lấy được dữ liệu ' + responseData.msg);
-            }
-            else{
-                alert("Thêm mới thành công");
-            }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
-            console.log(errorThrown);
-        }
-    });
-
-    RequestData("all");
-}
