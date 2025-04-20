@@ -62,7 +62,6 @@ function SendAddRequest(){
         return;
     }
     request += `&dukien=${YMD2DMY(value)}&mui=1`;
-    // console.log(request);
     ShowLoader();
     $.ajax({ //Sử dụng Ajax gửi lệnh
         url: `${API}?r=add&${request}`,
@@ -230,7 +229,6 @@ function Update(id){
                 alert("Cập nhật thành công");
                 HideLoader();
                 CloseDlg("updateDlg");
-                //console.log(responseData.data);
                 select_listview_changed()
             }
         },
@@ -245,7 +243,6 @@ function Update(id){
 function select_listview_changed(){
     document.querySelector("#secList").innerHTML = '';
     RequestData(document.getElementById("viewmode").value);
-    //document.querySelector(".card.additembtn").style.display = v==='all'?'block':'none';
 }
 
 
@@ -288,12 +285,9 @@ function RequestData(request){
         data: '',
         success: function(responseData, textStatus, jqXHR) {
             if(textStatus!='success'){
-                //không lấy được dữ liệu, có thể do không có dữ liệu hoặc bị lỗi.
-                //wishes=[];
                 alert('Không lấy được dữ liệu ' + responseData.msg);
             }
             else{
-                //coming:
                 if(request==='all'){
                     ShowAllCards(responseData.data);
                 } else if(request.includes("complete")){
