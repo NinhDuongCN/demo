@@ -20,7 +20,7 @@ function RequestLichtiemNotif(){
             console.log(errorThrown);
         }
     });
-});
+};
 
 function ShowNotif(coming){
     if(coming == undefined) return;
