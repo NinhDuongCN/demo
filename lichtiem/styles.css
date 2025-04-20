@@ -217,6 +217,11 @@ body {
     cursor: pointer;
 }
 
+.card summary a:last-child {
+    text-align: right;
+    font-size: 14px;
+}
+
 .card-detail-group {
     margin-top: 15px;
     padding-top: 10px;
