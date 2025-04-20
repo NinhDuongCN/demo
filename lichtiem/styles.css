@@ -280,6 +280,7 @@ body {
 }
 
 #adddukien{
+    direction: rtl;
     text-align: right;
 }
 

@@ -71,7 +71,7 @@ function SendAddRequest(){
         data: '',
         success: function(responseData, textStatus, jqXHR) {
             if(textStatus!='success'){                
-                alert('Không lấy được dữ liệu ' + responseData.msg);
+                alert('Không gửi được dữ liệu ' + responseData.msg);
             }
             else{
                 alert("Thêm mới thành công");
@@ -81,7 +81,7 @@ function SendAddRequest(){
             HideLoader();
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            alert('Không tải được thông tin. Hãy thử đăng nhập tài khoản google trước');
+            alert('Không gửi được thông tin. Hãy thử đăng nhập tài khoản google trước');
             console.log(errorThrown);
             HideLoader();
         }
@@ -112,20 +112,20 @@ document.getElementById('searchInput').addEventListener('input', function() {
 });
 
 function ShowLoader(){
-    document.querySelector("#secloader.inactive").classList.replace("inactive", "active");
+    document.querySelector("#secloader.inactive")?.classList.replace("inactive", "active");
 }
 function HideLoader(){
-    document.querySelector("#secloader.active").classList.replace("active", "inactive");
+    document.querySelector("#secloader.active")?.classList.replace("active", "inactive");
 }
 
 function CloseDlg(id){
-    document.getElementById(id).classList.replace("active", "inactive");
+    document.getElementById(id)?.classList.replace("active", "inactive");
 }
 
-function ShowUpdateDlg(id, ten, dukien){
+function ShowUpdateDlg(id, loai, mui, dukien, tongmui){
     var dlg = document.getElementById("updateDlg");
     dlg.innerHTML = `
-        <p class="popup-title" id="updateDlg-title">${ten}</p>
+        <p class="popup-title" id="updateDlg-title">${loai} ${mui==undefined?"":("(liều "+mui+")")}</p>
         <select onchange="select_value_changed()" id="uptrangthai">
             <option value="Chưa tiêm" selected>Chưa tiêm</option>
             <option value="Đã tiêm">Đã tiêm</option>
@@ -139,7 +139,7 @@ function ShowUpdateDlg(id, ten, dukien){
         <div class="inactive" id="updatiem">
             <div class="update-detail">
                 <a>Ngày tiêm</a>
-                <input name="ngaytiem" type="date" class="update-item" id="u-ngaytiem" value="${DMY2YMD(dukien)}">
+                <input name="ngaytiem" type="date" class="update-item" id="u-ngaytiem" onchange=ChangeNgayTiem() value="${DMY2YMD(dukien)}">
             </div>
             <div class="update-detail">
                 <a>Tên Vaccine</a>
@@ -149,13 +149,24 @@ function ShowUpdateDlg(id, ten, dukien){
                 <a>Nơi tiêm</a>
                 <input name="noitiem" type="text" class="update-item" id="u-noitiem" value="Hồng Châu">
             </div>
+            ${mui===tongmui?'':('<div class=update-detail><a>Ngày tiêm tới</a><input name="dukien" type="date"  class="update-item" id="u-dukien" value="'+DateAddNum(new Date(DMY2YMD(dukien)), 30)+'"></div>')}
         </div>
         <div class="update-button">
             <button onclick="Update('${id}')">Gửi thông tin</button>
             <button onclick="CloseDlg('updateDlg')">Đóng</button>
         </div>
     `;
-    dlg.classList.replace("inactive", "active");
+    dlg?.classList.replace("inactive", "active");
+}
+
+function ChangeNgayTiem(){
+    var domdukien = document.querySelector("#updatiem #u-dukien");
+    if(domdukien == undefined)  return;
+    domdukien.value = DateAddNum(new Date(document.querySelector("#updatiem #u-ngaytiem").value), 30); //mặc định là dự kiến tiêm mũi tiếp sau 30 ngày
+};
+
+function DateAddNum(value, num){
+    return Date2YYYYMMDD(new Date(value.setDate(value.getDate() + num)));
 }
 
 function DMY2YMD(value){
@@ -165,13 +176,70 @@ function DMY2YMD(value){
 
 function select_value_changed(){
     if(document.getElementById("uptrangthai").value === "Đã tiêm"){
-        document.getElementById("upchuatiem").classList.replace("active","inactive");
-        document.getElementById("updatiem").classList.replace("inactive","active");
+        document.getElementById("upchuatiem")?.classList.replace("active","inactive");
+        document.getElementById("updatiem")?.classList.replace("inactive","active");
     } else{
-        document.getElementById("updatiem").classList.replace("active","inactive");
-        document.getElementById("upchuatiem").classList.replace("inactive","active");
+        document.getElementById("updatiem")?.classList.replace("active","inactive");
+        document.getElementById("upchuatiem")?.classList.replace("inactive","active");
+    }   
+}
+
+function Update(id){
+    var request = "";
+    var domdukien = document.querySelector(".active#upchuatiem #u-dukien");
+    var value;
+    if(domdukien == undefined){
+        //đã tiêm
+        value = document.querySelector("#u-ngaytiem").value;
+        if(value=='' || value == undefined){
+            alert(`Ngày tiêm không đúng (${value})`);
+            return;
+        }
+        request = `&ngaytiem=${YMD2DMY(value)}&vaccine=${document.querySelector("#u-vaccine").value}&noitiem=${document.querySelector("#u-noitiem").value}`;
+        domdukien = document.querySelector(".active#updatiem #u-dukien");
+        if(domdukien != undefined){
+            value = domdukien.value;
+            if(value == '' || value == undefined){
+                alert("Ngày tiêm dự kiến không đúng");
+                return;
+            }
+            request += `&dukien=${YMD2DMY(value)}`;
+        }
+    } else{
+        //chưa tiêm
+        value = domdukien.value;
+        if(value == '' || value == undefined){
+            alert("Ngày tiêm dự kiến không đúng");
+            return;
+        }
+        request = `&dukien=${YMD2DMY(value)}`;
     }
-    
+
+    //send request
+    ShowLoader();
+    $.ajax({ //Sử dụng Ajax gửi lệnh
+        url: `${API}?r=update&id=${id}${request}`,
+        method: "GET",
+        dataType: 'json',
+        data: '',
+        success: function(responseData, textStatus, jqXHR) {
+            if(textStatus!='success'){                
+                alert('Không gửi được dữ liệu ' + responseData.msg);
+            }
+            else{
+                alert("Cập nhật thành công");
+                HideLoader();
+                CloseDlg("updateDlg");
+                //console.log(responseData.data);
+                select_listview_changed()
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Không gửi được thông tin. Hãy thử đăng nhập tài khoản google trước');
+            console.log(errorThrown);
+            HideLoader();
+        }
+    });
 }
 
 function select_listview_changed(){
@@ -293,7 +361,7 @@ function ShowCards(items){
                                 <a>${item.dukien}</a>
                             </div>
                             <div class="card-button">
-                                <button onclick="ShowUpdateDlg('${item.id}', '${item.loai} ${item.mui==undefined?"":("(liều "+item.mui+")")}', '${item.dukien}')">Cập nhật mũi tiêm</button>
+                                <button onclick="ShowUpdateDlg('${item.id}', '${item.loai}', '${item.mui}', '${item.dukien}', '${item.tongmui}')">Cập nhật mũi tiêm</button>
                             </div>
                         </details>
                       </div>`;
@@ -345,7 +413,7 @@ function ShowCards2(items){
                                 <a>${lan.dukien}</a>
                             </div>
                             <div class="card-button">
-                                <button onclick="ShowUpdateDlg('${lan.id}', '${item.loai} ${lan.mui==undefined?"":("(liều "+lan.mui+")")}', '${lan.dukien}')">Cập nhật mũi tiêm</button>
+                                <button onclick="ShowUpdateDlg('${lan.id}', '${item.loai}', '${lan.mui}', '${lan.dukien}', '${item.tongmui}')">Cập nhật mũi tiêm</button>
                             </div>
                         </div>
                         `;
