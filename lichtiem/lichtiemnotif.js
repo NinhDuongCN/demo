@@ -1,17 +1,14 @@
 /* dành cho việc hiển thị thông báo lịch tiêm trên các trang khác */
 
-const lichtiemAPI = 'https://script.google.com/macros/s/AKfycbwFdSzEzuhdGsTydzb_dyNIZ5DgVlDh0f9z2oqTVbGrsLipXvfNuSqf5BwAU79YXNUI/exec';
-
-document.addEventListener("DOMContentLoaded", function(){
+function RequestLichtiemNotif(){
     //request coming
     $.ajax({ //Sử dụng Ajax gửi lệnh
-        url: `${API}?r=coming`,
+        url: `https://script.google.com/macros/s/AKfycbwFdSzEzuhdGsTydzb_dyNIZ5DgVlDh0f9z2oqTVbGrsLipXvfNuSqf5BwAU79YXNUI/exec?r=coming`,
         method: "GET",
         dataType: 'json',
         data: '',
         success: function(responseData, textStatus, jqXHR) {
             if(textStatus!='success'){
-                // alert('Không lấy được dữ liệu ' + responseData.msg);
                 console.log("[lichtiemnotif] không tải được dữ liệu");
             }
             else{
