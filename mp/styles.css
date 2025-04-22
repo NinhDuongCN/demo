@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    color: blue;
+    margin: 10px;
+}
+
+li:hover {
+    text-decoration: underline;
+}
