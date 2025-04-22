@@ -5,6 +5,7 @@ const API='https://script.google.com/macros/s/AKfycbwFdSzEzuhdGsTydzb_dyNIZ5DgVl
 // const QUA_HAN_TIEM = "Quá hạn tiêm";
 // const GAN_DEN = "Gần đến";
 const DA_TIEM = "Đã tiêm";
+const DA_UONG = "Đã uống";
 // const CHUA_TIEM = "Chưa tiêm";
 // const DEN_HAN = "Đến hạn tiêm";
 const COMPLETE = "Hoàn thành";
@@ -322,7 +323,7 @@ function ShowNotif(coming){
 function ShowCards(items){
     var chtml='';
     items.forEach(item=>{
-        if(item.trangthai === DA_TIEM){
+        if(item.trangthai === DA_TIEM || item.trangthai === DA_UONG){
             chtml += `<div class="card" id="${item.id}">
                         <details>
                             <summary>
@@ -376,7 +377,7 @@ function ShowCards2(items){
                         </summary>
                 `;
         item.lantiem.forEach(lan =>{
-            if(lan.trangthai === DA_TIEM){
+            if(lan.trangthai === DA_TIEM || lan.trangthai === DA_UONG){
                 card += `<div class="card-detail-group">
                             <div class="group-title">
                                 <a class="grpttl-name">${(!lan.mui)?"":"Liều "+lan.mui}</a>
