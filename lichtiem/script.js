@@ -215,10 +215,12 @@ function Update(id){
         request = `&dukien=${YMD2DMY(value)}`;
     }
 
+    var viewmode = document.getElementById("viewmode").value;
+
     //send request
     ShowLoader();
     $.ajax({ //Sử dụng Ajax gửi lệnh
-        url: `${API}?r=update&id=${id}${request}`,
+        url: `${API}?r=update&viewmode=${viewmode}&id=${id}${request}`,
         method: "GET",
         dataType: 'json',
         data: '',
@@ -230,7 +232,8 @@ function Update(id){
                 alert("Cập nhật thành công");
                 HideLoader();
                 CloseDlg("updateDlg");
-                select_listview_changed()
+                // select_listview_changed()
+                ShowCardsBy(viewmode, responseData.data);
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -289,13 +292,14 @@ function RequestData(request){
                 alert('Không lấy được dữ liệu ' + responseData.msg);
             }
             else{
-                if(request==='all'){
-                    ShowAllCards(responseData.data);
-                } else if(request.includes("complete")){
-                    ShowCards2(responseData.data);
-                } else{
-                    ShowCards(responseData.data);
-                }
+                // if(request==='all'){
+                //     ShowAllCards(responseData.data);
+                // } else if(request.includes("complete")){
+                //     ShowCards2(responseData.data);
+                // } else{
+                //     ShowCards(responseData.data);
+                // }
+                ShowCardsBy(request, responseData.data);
             }
             HideLoader();
         },
@@ -305,6 +309,16 @@ function RequestData(request){
             HideLoader();
         }
     });
+}
+
+function ShowCardsBy(viewmode, data){
+    if(viewmode === 'all'){
+        ShowAllCards(data);
+    } else if(viewmode.includes('complete')){
+        ShowCards2(data);
+    } else{
+        ShowCards(data);
+    }
 }
 
 
