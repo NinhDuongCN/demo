@@ -1,5 +1,5 @@
 
-const API='https://script.google.com/macros/s/AKfycbwFdSzEzuhdGsTydzb_dyNIZ5DgVlDh0f9z2oqTVbGrsLipXvfNuSqf5BwAU79YXNUI/exec';
+const API='https://script.google.com/macros/s/AKfycbypDh8mxE_4vGKvc5m12arMESt6toogLe5H-kjVcei7LioRyLB4kxrd4eESPFoEY4OO/exec';
 /* trạng thái mũi tiêm, kiểm tra đồng bộ với API
 */
 // const QUA_HAN_TIEM = "Quá hạn tiêm";
@@ -456,4 +456,5 @@ function Date2YYYYMMDD(date){
     re += '-' + ((v=date.getDate()) < 10?'0':'') + v;
     return re;
 }
+
 
